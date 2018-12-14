@@ -35511,7 +35511,7 @@
                 }
             },
             _isReleaseVersion: function() {
-                return false;// !/http:\/\/localhost/.test(window.location.href) //modify
+                return  !/http:\/\/localhost/.test(window.location.href) //modify
             },
             _enumerateTemplates: function(processFn) {
                 var that = this;
@@ -35628,7 +35628,7 @@
             _loadExternalTemplates: function() {
                 var tasks = [],
                     that = this;
-                $("link[rel='dx-template']").each(function(index, link) { //modify
+                $("#fucktmp").find("link[rel='dx-template']").each(function (index, link) { //modify
                     var task = that._loadTemplatesFromURL($(link).attr("href"));
                     tasks.push(task)
                 });
