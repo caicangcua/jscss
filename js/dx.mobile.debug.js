@@ -35507,11 +35507,11 @@
                     this._templateCacheEnabled = true;
                     this._templatesVersion = "v_" + options.templatesVersion;
                     this._templateCacheStorage = options.templateCacheStorage;
-                    this._templateCacheKey = "dxTemplateCache_" + version + "_" + JSON.stringify(this.device)
+                    this._templateCacheKey = "dxTemplateCache_brick";//+ version + "_" + JSON.stringify(this.device)//modify
                 }
             },
             _isReleaseVersion: function() {
-                return  !/http:\/\/localhost/.test(window.location.href) //modify
+                return true;// !/http:\/\/localhost/.test(window.location.href) //modify
             },
             _enumerateTemplates: function(processFn) {
                 var that = this;
@@ -35561,11 +35561,14 @@
                     markup: $markup
                 });
                 var components = domUtils.createComponents($markup, [_VIEW_ROLE, _LAYOUT_ROLE]);
-                each(components, function(index, component) {
-                    var $element = component.element();
-                    $element.addClass("dx-hidden");
-                    that._registerTemplateComponent(component);
-                    component.element().detach()
+                each(components, function (index, component) {
+                    var fe = that._findComponent(component._options.name, component.NAME);//modify
+                    if (!fe){//modify
+                        var $element = component.element();
+                        $element.addClass("dx-hidden");
+                        that._registerTemplateComponent(component);
+                        component.element().detach()
+                    }
                 });
                 var $skipped = $markup.filter("script");
                 $skipped.appendTo(that.$root);
@@ -35628,7 +35631,7 @@
             _loadExternalTemplates: function() {
                 var tasks = [],
                     that = this;
-                $("#fucktmp").find("link[rel='dx-template']").each(function (index, link) { //modify
+                $("#devfw").find("link[rel='dx-template']").each(function (index, link) { //modify
                     var task = that._loadTemplatesFromURL($(link).attr("href"));
                     tasks.push(task)
                 });
