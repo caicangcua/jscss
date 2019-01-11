@@ -1,0 +1,282 @@
+﻿
+<div class="giohang">
+    <div class="cartx">
+        <div class="table">
+            <div class="layout-inline row th">
+                <div class="col col-pro">Product</div>
+                <div class="col col-price align-center ">
+                    Price
+                </div>
+                <div class="col col-qty align-center">QTY</div>
+                <div class="col align-center">VAT</div>
+                <div class="col align-center">Total</div>
+            </div>
+            <div class="scrollbody">
+                <div class="layout-inline row">
+                    <div class="col col-pro layout-inline">
+                        <span>
+                            G:2222222<br />Vat:0%
+                        </span>
+                        <img src="https://images.foody.vn/res/g73/723823/prof/s280x175/foody-upload-api-foody-mobile-hmmmmmmmmmm-jpg-180313160817.jpg" alt="kitten" />
+                        <p>Happy Little Critter</p>
+
+                    </div>
+                    <div class="col col-price col-numeric align-center ">
+                        <p>22.000d</p>
+                    </div>
+                    <div class="col col-qty layout-inline">
+                        <div class="a_qty qty-minus">-</div>
+                        <input type="numeric" value="3" />
+                        <div class="a_qty qty-plus">+</div>
+                    </div>
+                    <div class="col col-vat col-numeric">
+                        <p>22.000d</p>
+                    </div>
+                    <div class="col col-total col-numeric">
+                        <p>22.000d</p>
+                    </div>
+                </div>
+
+                <!--<div class="layout-inline row row-bg2">
+
+                    <div class="col col-pro layout-inline">
+                        <img src="http://media-cache-ec2.pinimg.com/550x/c7/02/8f/c7028f260ae030ba66494ee75407192f.jpg" alt="kitten" />
+                        <p>Scared Little Kittie</p>
+                    </div>
+
+                    <div class="col col-price col-numeric align-center ">
+                        <p>£23.99</p>
+                    </div>
+
+                    <div class="col col-qty  layout-inline">
+                        <div class="a_qty qty-minus ">-</div>
+                        <input type="numeric" value="1" />
+                        <div class="a_qty qty-plus">+</div>
+                    </div>
+
+                    <div class="col col-vat col-numeric">
+                        <p>£1.95</p>
+                    </div>
+                    <div class="col col-total col-numeric">
+                        <p>£25.94</p>
+                    </div>
+
+                </div>
+
+                <div class="layout-inline row">
+
+                    <div class="col col-pro layout-inline">
+                        <img src="https://i.dailymail.co.uk/i/pix/2012/09/16/article-2204256-15053801000005DC-304_634x524.jpg" alt="kitten" />
+                        <p>Curious Little Begger</p>
+                    </div>
+
+                    <div class="col col-price col-numeric align-center ">
+                        <p>£59.99</p>
+                    </div>
+
+                    <div class="col col-qty layout-inline">
+                        <div class="a_qty qty-minus">-</div>
+                        <input type="numeric" value="3" />
+                        <div class="a_qty qty-plus">+</div>
+                    </div>
+
+                    <div class="col col-vat col-numeric">
+                        <p>£2.95</p>
+                    </div>
+                    <div class="col col-total col-numeric">
+                        <p>£182.95</p>
+                    </div>
+                </div>-->
+            </div>
+            <div class="tf">
+                <div class="dathang" style="position: absolute;z-index: 1;left: 30px;top: 50%;margin: 0px;margin-top: -15px;">
+                    <div id="cart_done" class="submit a_demo_one">
+                        <span><i class="fa fa-check-square-o"></i> DAT HANG</span>
+                    </div>
+                    <div></div>
+                </div>
+                <div class="row layout-inline">
+                    <div class="col">
+                        <p>VAT</p>
+                    </div>
+                    <div class="col subtotal"></div>
+                </div>
+                <div class="row layout-inline">
+                    <div class="col">
+                        <p>Shipping</p>
+                    </div>
+                    <div class="col subtotal"></div>
+                </div>
+                <div class="row layout-inline">
+                    <div class="col">
+                        <p>Total</p>
+                    </div>
+                    <div class="col subtotal"></div>
+                </div>
+            </div>
+        </div>
+        <div style="clear:both"></div>
+        <div class="dathang" style="text-align: center;margin: 30px auto; z-index:1">
+            <div id="exit_giohang" class="submit a_demo_one closebtn">
+                <span><i class="fa fa-times"></i> DUNG DAT HANG</span>
+            </div>
+        </div>
+        <!--<div class="btn btn-update">Update cart</div>-->
+
+
+
+    </div>
+</div>
+<div class="dathang">
+    <div class="login chotdonhang">
+
+        <div class="screen-placeorder" style="position: relative;">
+
+            <div class="legend">
+                <span>NGUOI DAT HANG</span>
+            </div>
+
+            <div class="wrapper">
+                <!--https://codepen.io/erwinquita/pen/ZWzVRE-->
+                <ul class="StepProgress">
+                    <li class="StepProgress-item current">
+                        <strong>Nhap thong tin nguoi nhan hang</strong>
+
+                        <div class="input">
+                            <input type="text" placeholder="ho ten" required />
+                            <span><i class="fa fa-envelope-o"></i></span>
+                        </div>
+                        <div class="input">
+                            <input type="text" placeholder="dia chi" required />
+                            <span><i class="fa fa-envelope-o"></i></span>
+                        </div>
+
+                    </li>
+                    <li class="StepProgress-item current">
+                        <strong>Chon dot giao hang trong ngay</strong>
+                        <!--https://www.cssscript.com/demo/google-material-design-animated-radio-buttons-with-pure-css3/-->
+                        <label class="radio">
+                            <input id="radio1" type="radio" name="radios" checked="">
+                            <span class="outer"><span class="inner"></span></span>10:30
+                        </label>
+                        <label class="radio">
+                            <input id="radio2" type="radio" name="radios">
+                            <span class="outer"><span class="inner"></span></span>11:15
+                        </label>
+                        <label class="radio">
+                            <input id="radio3" type="radio" name="radios">
+                            <span class="outer"><span class="inner"></span></span>12:00
+                        </label>
+                        <label class="radio">
+                            <input id="radio4" type="radio" name="radios">
+                            <span class="outer"><span class="inner"></span></span>12:45
+                        </label>
+                    </li>
+
+                    <li class="StepProgress-item current">
+                        <strong>Nhan tin ve so: 0989166259</strong>
+                        Noi dung ban nhin thay tren hinh theo cu phap : <strong>*10*noi-dung-trong-hinh</strong>
+                        <img style="width:220px" src="/images/catcha.jpg" />
+
+
+                    </li>
+                    <li class="StepProgress-item guide">
+                        <strong>Hoac ban dang nhap:</strong>
+                        bang cach nhan vao nut dang nhap
+                    </li>
+                </ul>
+            </div>
+
+            <div style="position: relative;  padding-top: 20px; z-index:1">
+                <div id="dangnhap_button" class="submit a_demo_one">
+                    DANG NHAP
+                </div>
+            </div>
+        </div>
+
+
+        <div class="screen-dangnhap" style="position: relative;display:none; height: 100%;">
+            <div class="legend">
+                <span>DANG NHAP</span>
+            </div>
+            <div class="input">
+                <input type="tel" placeholder="so dien thoai" required />
+                <span><i class="fa fa-envelope-o"></i></span>
+            </div>
+
+
+            <div class="input">
+                <input type="password" placeholder="mat khau" required />
+                <span><i class="fa fa-lock"></i></span>
+                <div class="resetpass">
+                    dat lai<i style="margin-left: 10px;" class="fa fa-refresh" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div style="position: relative;  padding-top: 20px; z-index:1">
+                <div id="dologin_button" class="submit a_demo_one">
+                    DO LOGIN
+                </div>
+                <div style="width:50px;    display: inline-block;"></div>
+                <div id="dologin_close" class="submit a_demo_one closebtn">
+                    QUAI LAI
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="feedback">
+            login successful <br />
+            redirecting...
+        </div>
+
+    </div>
+    <div class="login datlaipass" style="display:none">
+
+        <div style="position: relative;height: 100%;">
+
+            <div class="legend">
+                <span>RESET PASS</span>
+            </div>
+
+            <div class="wrapper">
+                <!--https://codepen.io/erwinquita/pen/ZWzVRE-->
+                <ul class="StepProgress">
+                    <li class="StepProgress-item current">
+                        <strong>Nhan tin ve so: 0989166259</strong>
+                        Noi dung ban nhin thay tren hinh theo cu phap : <strong>*10*noi-dung-trong-hinh</strong>
+                        <img style="width:220px" src="/images/catcha.jpg" />
+
+
+                    </li>
+                    <li class="StepProgress-item current">
+                        <strong>Ban phai dam bao rang:</strong>
+                        Thuc hien hoan tat buoc 1 trong khoang thoi gian quy dinh
+                        <div id="countdown"></div>
+
+                        <p id="note"></p>
+
+                    </li>
+                </ul>
+            </div>
+
+
+
+
+
+
+
+            <div style="position: relative;  padding-top: 20px; z-index:1">
+                <div id="resetpass_close" class="submit a_demo_one closebtn">
+                    QUAI LAI
+                </div>
+            </div>
+        </div>
+
+        <div class="feedback">
+            login successful <br />
+            redirecting...
+        </div>
+
+    </div>
+</div>
