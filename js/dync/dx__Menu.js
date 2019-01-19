@@ -331,7 +331,7 @@
                         } else {
                             datlaipass = scrollView.find('.login.datlaipass');
                         };
-                        new jsLoader().require([dyncpath + '__Menu1.js'], function () {// Callback
+                        new jsLoader().require([dyncpath + 'dx__Menu1.js'], function () {// Callback
                             doResetPass();
                         });
                     });
