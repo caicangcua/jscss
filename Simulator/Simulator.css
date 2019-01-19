@@ -472,6 +472,9 @@
           width: 15.625em; /*should match the above value*/
           box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
         }
+.virtualkeyboard {
+    height:300px!important;
+}
 
 
         .wrapper {

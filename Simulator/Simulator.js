@@ -541,12 +541,16 @@
 
 
 //<script type="text/javascript">
-    var SIMULATOR_APPLICATION_HASH = 'dxapp-hash';
+var SIMULATOR_APPLICATION_HASH = 'dxapp-hash';
 
 document.onkeydown = function (e) {
     if (e.keyCode == 27) {
         window.location.href = "#";
     }
+}
+
+function virtualKeyboard(act) {
+    $('#simulatorFrame')[act]('virtualkeyboard');
 }
 
 $(function () {
@@ -883,6 +887,8 @@ $(function () {
         $('.toolbar').fadeIn();
         fuckResize();
     });
+
+
 
 });
 //</script>
