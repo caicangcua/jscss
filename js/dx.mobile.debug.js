@@ -35511,7 +35511,7 @@
                 }
             },
             _isReleaseVersion: function() {
-                return !/http:\/\/localhost/.test(window.location.href) //modify
+                return true;// !/http:\/\/localhost/.test(window.location.href) //modify
             },
             _enumerateTemplates: function(processFn) {
                 var that = this;
