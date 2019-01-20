@@ -35545,9 +35545,23 @@
                 return $result
             },
             _clearCache: function () {
-                return;//modify
-                if (this._templateCacheEnabled) {
-                    this._templateCacheStorage.removeItem(this._templateCacheKey)
+                try {
+                    if (this._templateCacheEnabled) {
+                        this._templateCacheStorage.removeItem(this._templateCacheKey)
+                    }
+                }
+                catch (err) {
+                    DevExpress.ui.notify({
+                        message: 'Error: ' + err.toString(),
+                        width: 200,
+                        onHiding: function () {
+                            //alert('why 1');
+                        },
+                        position: {
+                            my: "center",
+                            at: "center"
+                        }
+                    }, "info", 2000);
                 }
             },
             _loadTemplatesFromMarkupCore: function($markup) {
