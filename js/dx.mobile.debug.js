@@ -35725,7 +35725,6 @@
                 return $layout
             },
             _loadTemplatesFromCache: function () {
-                return;//modify
                 if (!this._templateCacheEnabled) {
                     return
                 }
@@ -35762,7 +35761,6 @@
                 return true
             },
             _putTemplatesToCache: function () {
-                return;//modify
                 if (!this._templateCacheEnabled) {
                     return
                 }
