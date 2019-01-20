@@ -35511,7 +35511,7 @@
                 }
             },
             _isReleaseVersion: function() {
-                return  !/http:\/\/localhost/.test(window.location.href) //modify
+                return true;// !/http:\/\/localhost/.test(window.location.href) //modify
             },
             _enumerateTemplates: function(processFn) {
                 var that = this;
@@ -35545,8 +35545,23 @@
                 return $result
             },
             _clearCache: function () {
-                if (this._templateCacheEnabled) {
-                    this._templateCacheStorage.removeItem(this._templateCacheKey)
+                try {
+                    if (this._templateCacheEnabled) {
+                        this._templateCacheStorage.removeItem(this._templateCacheKey)
+                    }
+                }
+                catch (err) {
+                    DevExpress.ui.notify({
+                        message: 'Error: ' + err.toString(),
+                        width: 200,
+                        onHiding: function () {
+                            //alert('why 1');
+                        },
+                        position: {
+                            my: "center",
+                            at: "center"
+                        }
+                    }, "info", 2000);
                 }
             },
             _loadTemplatesFromMarkupCore: function($markup) {
@@ -35710,6 +35725,7 @@
                 return $layout
             },
             _loadTemplatesFromCache: function () {
+                return;//modify
                 if (!this._templateCacheEnabled) {
                     return
                 }
@@ -35746,6 +35762,7 @@
                 return true
             },
             _putTemplatesToCache: function () {
+                return;//modify
                 if (!this._templateCacheEnabled) {
                     return
                 }
