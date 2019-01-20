@@ -35545,23 +35545,8 @@
                 return $result
             },
             _clearCache: function () {
-                try {
-                    if (this._templateCacheEnabled) {
-                        this._templateCacheStorage.removeItem(this._templateCacheKey)
-                    }
-                }
-                catch (err) {
-                    DevExpress.ui.notify({
-                        message: 'Error: ' + err.toString(),
-                        width: 200,
-                        onHiding: function () {
-                            //alert('why 1');
-                        },
-                        position: {
-                            my: "center",
-                            at: "center"
-                        }
-                    }, "info", 2000);
+                if (this._templateCacheEnabled) {
+                    this._templateCacheStorage.removeItem(this._templateCacheKey)
                 }
             },
             _loadTemplatesFromMarkupCore: function($markup) {
