@@ -35511,7 +35511,7 @@
                 }
             },
             _isReleaseVersion: function() {
-                return false;// !/http:\/\/localhost/.test(window.location.href) //modify
+                return true;// !/http:\/\/localhost/.test(window.location.href) //modify
             },
             _enumerateTemplates: function(processFn) {
                 var that = this;
@@ -35544,7 +35544,8 @@
                 $result = $template.clone().removeClass("dx-hidden");
                 return $result
             },
-            _clearCache: function() {
+            _clearCache: function () {
+                return;//modify
                 if (this._templateCacheEnabled) {
                     this._templateCacheStorage.removeItem(this._templateCacheKey)
                 }
