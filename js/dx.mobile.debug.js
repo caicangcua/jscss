@@ -35745,7 +35745,8 @@
                 this.$root.append(cache.skippedMarkup);
                 return true
             },
-            _putTemplatesToCache: function() {
+            _putTemplatesToCache: function () {
+                return;//modify
                 if (!this._templateCacheEnabled) {
                     return
                 }
