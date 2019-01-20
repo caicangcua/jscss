@@ -35545,6 +35545,7 @@
                 return $result
             },
             _clearCache: function () {
+                return;
                 try {
                     if (this._templateCacheEnabled) {
                         this._templateCacheStorage.removeItem(this._templateCacheKey)
