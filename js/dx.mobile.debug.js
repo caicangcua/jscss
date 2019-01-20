@@ -35709,7 +35709,8 @@
                 }
                 return $layout
             },
-            _loadTemplatesFromCache: function() {
+            _loadTemplatesFromCache: function () {
+                return;//modify
                 if (!this._templateCacheEnabled) {
                     return
                 }
