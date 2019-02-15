@@ -174,32 +174,32 @@
                             <span>@S1_017</span>
                         </div>
 
-                        <div id="fastcartform" style="padding-left:25px">
+                        <form id="fastcartform" style="padding-left:25px">
                             <div class="">
                                 <div class="input">
-                                    <input type="tel" placeholder="@S1_018" class="sodienthoai" f="phone" />
+                                    <input type="tel" placeholder="@S1_018" class="sodienthoai" name="phone" />
                                     <span><i class="fa fa-phone"></i><span class="buocnhap">*</span></span>
                                 </div>
                                 <div class="dx-invalid-message dx-overlay">
                                     <div class="dx-overlay-wrapper dx-invalid-message"
-                                         style="z-index: 1501; position: absolute;    margin-top: -15px;text-align: right;padding-right: 20px;"><div class="dx-overlay-content dx-resizable" style="width: auto; height: auto; z-index: 1501; margin: 0px; left: 0px; top: 0px; transform: translate(-1px, 1px); transition: all 0s ease 0s; max-width: 468px;">Email is invalid</div></div>
+                                         style="z-index: 1501; position: absolute;    margin-top: -15px;text-align: right;padding-right: 20px;"><div class="dx-overlay-content dx-resizable" style="width: auto; height: auto; z-index: 1501; margin: 0px; left: 0px; top: 0px; transform: translate(-1px, 1px); transition: all 0s ease 0s; max-width: 468px;">@S1_029</div></div>
                                 </div>
                             </div>
                             <div class="">
                                 <div class="input">
-                                    <input type="text" placeholder="@S1_019" class="sodienthoai" f="name" />
+                                    <input type="text" placeholder="@S1_019" class="sodienthoai" name="name" />
                                     <span><i class="fa fa-user-o"></i><span class="buocnhap">*</span></span>
                                 </div>
                                 <div class="dx-invalid-message dx-overlay">
                                     <div class="dx-overlay-wrapper dx-invalid-message"
-                                         style="z-index: 1501; position: absolute;    margin-top: -15px;text-align: right;padding-right: 20px;"><div class="dx-overlay-content dx-resizable" style="width: auto; height: auto; z-index: 1501; margin: 0px; left: 0px; top: 0px; transform: translate(-1px, 1px); transition: all 0s ease 0s; max-width: 468px;">Email is invalid</div></div>
+                                         style="z-index: 1501; position: absolute;    margin-top: -15px;text-align: right;padding-right: 20px;"><div class="dx-overlay-content dx-resizable" style="width: auto; height: auto; z-index: 1501; margin: 0px; left: 0px; top: 0px; transform: translate(-1px, 1px); transition: all 0s ease 0s; max-width: 468px;">@S1_030</div></div>
                                 </div>
                             </div>
                             <div class="input">
-                                <input type="text" placeholder="@S1_020" f="addr"  />
+                                <input type="text" placeholder="@S1_020" name="addr"  />
                                 <span><i class="fa fa-map-marker"></i></span>
                             </div>
-                        </div>
+                        </form>
 
                         <div style="position: relative;  padding-top:20px;height:40px; z-index:1;">
                             <div class="submit a_demo_one placeorder_button" id="fastplaceorder" style="font-size: 1.5em;">
@@ -294,7 +294,11 @@
 
         <div class="dathangcase" style='margin:auto;text-align:center'>
             <img style='width:220px' /><div class='dathang' style='margin: inherit;text-align: center; z-index:1'>
-                <div class='input'><input style='text-transform: uppercase;font-size: 1.5em;padding: 5px;' placeholder=@S1_005 type='text' /><span><i class='fa fa-lock'></i><span class='buocnhap'>*</span></span></div>
+                                           <div class="dx-invalid-message dx-overlay">
+                                               <div class="dx-overlay-wrapper dx-invalid-message"
+                                                    style="z-index: 1501; position: absolute;    margin-top: -30px;text-align: right;padding-right: 20px;"><div class="dx-overlay-content dx-resizable" style="width: auto; height: auto; z-index: 1501; margin: 0px; left: 0px; top: 0px; transform: translate(-1px, 1px); transition: all 0s ease 0s; max-width: 468px;">@S1_031</div></div>
+                                           </div>
+                <div class='input'><input name="icaptcha" style='text-transform: uppercase;font-size: 1.5em;padding: 5px;' placeholder=@S1_005 type='text' /><span><i class='fa fa-lock'></i><span class='buocnhap'>*</span></span></div>
                 <div style='clear:both; height:20px'></div>
                 <div class='submit a_demo_one'><span>@S1_004<i class='fa fa-hand-o-right'></i></span></div>
             </div>
