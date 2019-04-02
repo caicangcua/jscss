@@ -16124,7 +16124,7 @@
                     httpStatus = customCode
                 }
             }
-            if (httpStatus >= 400) {
+            if (httpStatus !== 200) {//hieu modify
                 errorData.httpStatus = httpStatus;
                 return extend(Error(message), errorData)
             }
