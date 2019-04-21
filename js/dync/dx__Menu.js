@@ -2,7 +2,7 @@
 
 (function () {
     ComApp.app.maCurrentView.__$cartPopup = function (__$shared, cartxx) {
-        var that = this, popupElement = $("<div class='shared_popup placeorder'></div>").appendTo('.dx-viewport'), dathangcase = {}, cartData = __$shared._cartData()
+        var that = this, popupElement = $("<div class='shared_popup placeorder'></div>").appendTo('.dx-viewport'), dathangcase = {},tongcong, cartData = __$shared._cartData()
         , renderPopupCart = function (contentElement) {
             var dathang = cartxx.find('.dathangcase'), deliverytime = cartxx.find('.deliverytime'), timeLabel = deliverytime.children().first();
             dathangcase['3'] = $(dathang[3]).clone(); $(dathang[3]).remove();
@@ -29,7 +29,7 @@
                     var $tong = cartxx.find('.tf .row .subtotal');
                     $tong[0].innerHTML = _Tien(0, 0);
                     $tong[1].innerHTML = _Tien(0, 0);
-                    var tongcong = 0;
+                    tongcong = 0;
                     $.each(cartData, function (key, $d) {
                         tongcong += $d['sl'] * $d['giaban'];
                     });
@@ -55,8 +55,6 @@
                             }
                         }
                     });
-                    var test = _TienUSD($d['giaban'], 0);
-
                     el.find('.col-price').html('<p>' + _Tien($d['giaban'], 0) + '</p>');
                     el.find('.col-vat p').html(_Tien($d['v'], 0));
                     el.find('.col-qty input').change(function () {
@@ -198,287 +196,25 @@
                     }
                 });
             });
-            //
-            scrollView.find('.placeorder_button').on('click', function (e) {
-                var isValid = true;
-                if (this.id == 'fastplaceorder') {
-                    scrollView.find('#fastcartform input.sodienthoai').each(function (i, el) {
-                        if ($.trim($(el).val()) == '') {
-                            var _$p = $(el).parent(), __$p = _$p.parent();
-                            _$p.addClass('txt-invalid'); __$p.addClass('errdulieu');
-                            isValid = false;
-                            $(el).focus();
-                        }
-                    });
+
+            _$dondatHang(0, cartxx, scrollView, dathangcase,
+                {
+                    _deliInfo: function () { return __$shared._deliInfo() },
+                    cartData: function () { return cartData; },
+                    tongcong: function () { return tongcong; }
                 }
-                if (!isValid) return;
-                //
-                var popup = null,postRst = function (data, args) {
-                    _$q.next(false);
-                    if (args['act'] == '0') {
-                        var  popupOptions = {
-                            width: 300,
-                            height: 270,
-                            contentTemplate: function () {
-                                var tmp = dathangcase[3].clone(),clickDatHang = function () {
-                                        var okcaptchar = true;
-                                        tmp.find('input').each(function (i, el) {
-                                            if ($.trim($(el).val()) == '') {
-                                                var _$p = $(el).parent(), __$p = _$p.parent();
-                                                _$p.addClass('txt-invalid'); __$p.addClass('errdulieu');
-                                                _$p.parent().find('.dx-overlay-content').text(gbM('S1_031'));
-                                                okcaptchar = false;
-                                                $(el).focus();
-                                            }
-                                        });
-                                        if (okcaptchar) {
-                                            var hanghoa = {},fastcartform = scrollView.find('#fastcartform').serializeArray(),
-                                            frmP = { 'act': 'dathangnhanh', 'captcha': $(this).data()['captcha'], 'icaptcha': tmp.find('input').val(),'uid':'-1' };
-                                            //$.each(fastcartform, function (i, v) {
-                                            //    frmP[v.name] = v.value;
-                                            //});
-                                            $.extend(frmP, __$shared._deliInfo());
-                                            //
-                                            $.each(cartData, function (key, $d) {
-                                                hanghoa[key] = [$d['sl'], $d['giaban'], $d['v']];
-                                            });
-                                            frmP['hh'] = hanghoa;
-                                            kicksvr(frmP);
-                                        }
-                                    }
-                                ComApp.app._localizeMarkup(tmp);
-                                //
-                                tmp.find('.a_demo_one').on('click', clickDatHang).data('captcha', data.captcha.CaptchaText);
-                                tmp.find('img').attr('src', 'data:image/png;base64,' + data.captcha.CaptchaImage);
-
-                                var clearValid = function ($input) {
-                                    var _$p = $input.parent(), __$p = _$p.parent();
-                                    if (_$p.hasClass('txt-invalid')) {
-                                        if ($.trim($input.val()) != '') {
-                                            _$p.removeClass('txt-invalid'); __$p.removeClass('errdulieu');
-                                        }
-                                    }
-                                };
-                                tmp.find('input').keypress(function (e) {
-                                    var keycode = e.keyCode || e.which;
-                                    if (keycode == '13') {
-                                        tmp.find('.a_demo_one').trigger("click");
-                                    } else {
-                                        clearValid($(this));
-                                    }
-                                }).blur(function () {
-                                    clearValid($(this));
-                                    $(this).parent().parent().removeClass("dx-state-focused");
-                                }).focus(function () {
-                                    $(this).parent().parent().addClass("dx-state-focused");
-                                }).val('');
-
-                                return tmp;
-                            },
-                            showTitle: true,
-                            toolbarItems: [
-                                {
-                                    location: "before",
-                                    toolbar: "top",
-                                    widget: "dxButton",
-                                    options: {
-                                        icon: "refresh",
-                                        elementAttr: { 'class': 'flatbutton' },
-                                        onClick: function (e) {
-                                            kicksvr({ 'act': 'newcaptcha' });
-                                        }
-                                    }
-                                }
-                            , {
-                                location: "center",
-                                toolbar: "top",
-                                text: gbM('S1_028')
-                            }]
-                            , onShown: function (e) {
-                                popup._$popupContent.find('input').focus();
-                            }
-                            , onHidden: function () {
-                                $popupContainer.remove();
-                            },
-                            dragEnabled: false
-                        };
-                        var $popupContainer = $("<div class='captcha_popup'/>").appendTo(popupElement);
-                        popup = $popupContainer.dxPopup(popupOptions).dxPopup("instance");
-                        popup.show();
-                    } else if (args['act'] == 'newcaptcha') {
-                        popup._$popupContent.find('.a_demo_one').data('captcha', data.captcha.CaptchaText);
-                        popup._$popupContent.find('img').attr('src', 'data:image/png;base64,' + data.captcha.CaptchaImage);
-                        popup._$popupContent.find('input').focus().val('');
-                    } else if (args['act'] == 'dathangnhanh') {
-                        switch (data.kq) {
-                            case 'errcaptcha': {
-                                popup._$popupContent.find('.a_demo_one').data('captcha', data.captcha.CaptchaText);
-                                popup._$popupContent.find('img').attr('src', 'data:image/png;base64,' + data.captcha.CaptchaImage);
-                                popup._$popupContent.find('input').each(function (i, el) {
-                                    var _$p = $(el).parent(), __$p = _$p.parent();
-                                    _$p.addClass('txt-invalid'); __$p.addClass('errdulieu');
-                                    __$p.parent().find('.dx-overlay-content').text(gbM('S1_032'));
-                                    $(el).focus().select();
-                                });
-                                break;
-                            }
-                            case 'OK': {
-                                //break;
-                                popup.hide();
-
-                                var storeObj = {}; storeObj['uid'] = data.uid;
-                                __$shared._cbCart('delivery', storeObj);
-
-                                clearAll(function () {
-                                    popupInstance.hide();
-                                    ComApp.app.navigate("Order", { root: true });
-                                    //scrReleased();
-                                });
-                                break;
-                            }
-                        }
-                    } else {
+                , function (arg) {
+                if (arg['act'] == 'clearAll') {
+                    var storeObj = {}; storeObj['uid'] = arg['data'].uid;
+                    __$shared._cbCart('delivery', storeObj);
+                    clearAll(function () {
                         popupInstance.hide();
-                    }
-                    scrReleased();
-                }, kicksvr = function (args) {
-                    scrLocked();
-                    _$a.api('POST', '634445158944375000020258', args, function (result) {
-                        postRst(result, args);
-                    }, function (err) {
-                        var msg = '<h1 style="color:red;background-color:yellow;display:inline-block;font-weight: 1000;">500</h1>' +
-                        '<h2>Oops! ' + err + '</h2>';
-                        chochut(-1, function () {
-                            kicksvr(args);
-                        }, { 'img': 'emoji.png', 'msg': '<div style="text-align:center">' + msg + '</div' });
+                        ComApp.app.navigate("Order", { root: true });
                     });
-                };
-                kicksvr({ 'act': '0' });
-            });
-            //
-            if (dathangcase.hasOwnProperty('0')) {//new visistor
-                var loginEvts = function () {
-                    scrollView.find('.resetpass').on('click', function () {
-                        var datlaipass,chotdonhang = scrollView.find('.login.chotdonhang'), doResetPass = function () {
-                            var dateAdd = function (date, interval, units) {
-                                var ret = new Date(date); //don't change original date
-                                var checkRollover = function () { if (ret.getDate() != date.getDate()) ret.setDate(0); };
-                                switch (interval.toLowerCase()) {
-                                    case 'year': ret.setFullYear(ret.getFullYear() + units); checkRollover(); break;
-                                    case 'quarter': ret.setMonth(ret.getMonth() + 3 * units); checkRollover(); break;
-                                    case 'month': ret.setMonth(ret.getMonth() + units); checkRollover(); break;
-                                    case 'week': ret.setDate(ret.getDate() + 7 * units); break;
-                                    case 'day': ret.setDate(ret.getDate() + units); break;
-                                    case 'hour': ret.setTime(ret.getTime() + units * 3600000); break;
-                                    case 'minute': ret.setTime(ret.getTime() + units * 60000); break;
-                                    case 'second': ret.setTime(ret.getTime() + units * 1000); break;
-                                    default: ret = undefined; break;
-                                }
-                                return ret;
-                            }, note = datlaipass.find('#note'), ts = dateAdd(new Date(), 'minute', 2), newYear = true;// new Date(2019, 0, 1),
-                            datlaipass.find('.captcha_resetpass').html(scrollView.find('.dx-scrollview-scrollbottom-indicator').clone());
-                            if ((new Date()) > ts) {
-                                // The new year is here! Count towards something else.
-                                // Notice the *1000 at the end - time must be in milliseconds
-                                ts = (new Date()).getTime() + 10 * 24 * 60 * 60 * 1000;
-                                newYear = false;
-                            }
-                            datlaipass.find('#countdown').countdown({
-                                timestamp: ts,
-                                callback: function (days, hours, minutes, seconds) {
-
-                                    var message = "";
-
-                                    message += days + " day" + (days == 1 ? '' : 's') + ", ";
-                                    message += hours + " hour" + (hours == 1 ? '' : 's') + ", ";
-                                    message += minutes + " minute" + (minutes == 1 ? '' : 's') + " and ";
-                                    message += seconds + " second" + (seconds == 1 ? '' : 's') + " <br />";
-
-                                    if (newYear) {
-                                        message += "left until the new year!";
-                                    }
-                                    else {
-                                        message += "left to 10 days from now!";
-                                    }
-
-                                    note.html(message);
-                                }
-                            });
-                            chotdonhang.fadeOut(300, function () {
-                                $('.table').css({ 'display': 'none' });
-                                datlaipass.fadeIn('slow', function () {
-                                });
-                            });
-                        };
-                        if (dathangcase.hasOwnProperty('2')) {
-                            datlaipass = dathangcase['2'].clone(); ComApp.app._localizeMarkup(datlaipass); $(chotdonhang[0]).parent().append(datlaipass); delete dathangcase['2'];
-                            datlaipass.find('#resetpass_close').on('click', function () {
-                                var chotdonhang = scrollView.find('.login.chotdonhang');
-                                var datlaipass = scrollView.find('.login.datlaipass');
-                                datlaipass.fadeOut(500, function () {
-                                    chotdonhang.fadeIn('slow');
-                                    datlaipass.find('.captcha_resetpass').empty();
-                                });
-                            });
-
-                        } else {
-                            datlaipass = scrollView.find('.login.datlaipass');
-                        };
-                        new jsLoader().require([dyncpath + 'dx__Menu1.js'], function () {// Callback
-                            doResetPass();
-                        });
-                    });
-                    scrollView.find('#dologin_close').on('click', function () {
-                        var placeorder = scrollView.find('.screen-placeorder');
-                        var dangnhap = scrollView.find('.screen-dangnhap');
-                        dangnhap.fadeOut(500, function () {
-                            placeorder.fadeIn('slow');
-                            $('.table').css({ 'display': '' });
-                            scrollView.data().dxScrollView.scrollTo(scrollDataXXX);//restore scrollPosition
-                        });
-                    });
+                } else if (arg['act'] == 'hidePU') {
+                    popupInstance.hide();
                 }
-                //
-                scrollView.find('#dangnhap_button').on('click', function () {
-                    scrollDataXXX = scrollView.data().dxScrollView.scrollOffset();//backup scrollPosition
-                    var placeorder = scrollView.find('.screen-placeorder');
-                    var dangnhap = scrollView.find('.screen-dangnhap');
-                    placeorder.fadeOut(500, function () {
-                        //has 2 placeorder
-                    });
-                    setTimeout(function () {
-                        dangnhap.fadeIn('slow');
-                        $('.table').css({ 'display': 'none' });
-                        if (!dangnhap.data('loginEvts')) loginEvts();
-                        dangnhap.data('loginEvts', '1');
-                    }, 500);
-                });
-                scrollView.find('#fastcartform input').keypress(function (e) {
-                        var keycode = e.keyCode || e.which;
-                        if (keycode == '13') {
-                            scrollView.find('.placeorder_button').trigger("click");
-                        } else {
-                            if (this.type == 'tel') {
-                                if (keycode != 32 && keycode != 8 && keycode != 0 && (keycode < 48 || keycode > 57)) {
-                                    return false;
-                                }
-                            }
-                        }
-                    }).blur(function () {
-                    var $input = $(this);
-                    if ($input.hasClass('sodienthoai')) {
-                        var _$p = $input.parent(), __$p = _$p.parent();
-                        if (_$p.hasClass('txt-invalid')) {
-                            if ($.trim($input.val()) != '') {
-                                _$p.removeClass('txt-invalid'); __$p.removeClass('errdulieu');
-                            }
-                        }
-                    }
-                    $(this).parent().parent().removeClass("dx-state-focused");
-                }).focus(function () {
-                    $(this).parent().parent().addClass("dx-state-focused")
-                });
-            }
+            });
         }
         , popupInstance = popupElement.dxPopup({
             fullScreen: true
@@ -489,9 +225,13 @@
                 renderPopupCart(contentElement);
             }
             , onHidden: function () {
+                scrReleased();
                 _virtualKeyboard('off', null, virtualPad);
                 popupElement.remove();
                 __$shared.showCart = false;
+            }
+            , onHiding: function () {
+                scrLocked();
             }
             , onShown: function (e) {
                 __$shared.showCart = true;
