@@ -61,25 +61,29 @@
                         var $sl = $(this), __slVal = $sl.val(); if (__slVal == '') { __slVal = 1; $sl.val(1); };
                         UptCart($sl.parent(), $sl.val());
                         QTY($sl.parent().parent(), __slVal);
+                    }).on('keyup',function (e) {
+                        var keycode = e.keyCode || e.which;
+                        var element = $(this);
+                        var len = element.val().length;
+                        var max = element.attr("maxlength");
+                        if (len > max) {
+                            element.val(element.val().substring(0, max));
+                        };
                     });
                     //
                     QTY(el);
                     //
-                },bgClass='row row-bg2',cnt=1, __sampleP = __bCart.children().first(); __sampleP.detach();
-            $.each(cartData, function (key, val) {
-                var spitem = __sampleP.clone();
-                if (cnt % 2 == 0) spitem.addClass(bgClass);
-                spitem.data('id', key);
-                spitem.find('.a_qty').click(function (e) {
-                    var cartItem = $(this).parent();
-                    var $spin = cartItem.find('input'), val = parseInt($spin.val()), cong = $(this).hasClass('qty-plus');
+                }, bgClass = 'row row-bg2', cnt = 1, __sampleP = __bCart.children().first(); __sampleP.detach();
+                var  a_qtyClick = function (qty) {
+                    var cartItem = qty.parent();
+                    var $spin = cartItem.find('input'), val = parseInt($spin.val()), cong = qty.hasClass('qty-plus');
                     if (val > 1 || cong) {
-                        UptCart(cartItem,val + ((cong) ? 1 : -1));
+                        UptCart(cartItem, val + ((cong) ? 1 : -1));
                         QTY(cartItem.parent());
+                        setTimeout(function () { cartItem.find('input').select(); }, 300);
                     }
-                });
-                spitem.find('.removeitem').click(function (e) {
-                    var that=this,result = DevExpress.ui.dialog.confirm('<div style="text-align:center;max-width:300px">' + gbM("S1_027") + '</div>', "Confirm changes");
+                }, removeitemTimeOutClick = function (that) {
+                    var result = DevExpress.ui.dialog.confirm('<div style="text-align:center;max-width:300px">' + gbM("S1_027") + '</div>', "Confirm changes");
                     result.done(function (rst) {
                         if (rst) {
                             var waitCount = 2, recount = function () {
@@ -89,6 +93,13 @@
                                         popupInstance.hide();
                                     } else {
                                         QTY();
+                                        __bCart.find('.layout-inline.row').each(function (index) {
+                                            if (index > 0 && index % 2 == 1) {
+                                                $(this).addClass('row-bg2');
+                                            } else {
+                                                $(this).removeClass('row-bg2');
+                                            };
+                                        });
                                     }
                                 }
                             }
@@ -103,6 +114,27 @@
                             }, 10);
                         }
                     });
+                };
+           
+            $.each(cartData, function (key, val) {
+                var spitem = __sampleP.clone();
+                if (cnt % 2 == 0) spitem.addClass(bgClass);
+                spitem.data('id', key);
+                spitem.find('.a_qty').click(function (e) {
+                    if (clickPrevent == '1') return;
+                    clickLocked();
+                    var qty = $(this);
+                    setTimeout(function () {
+                        a_qtyClick(qty);
+                    }, 100);
+                });
+                spitem.find('.removeitem').click(function (e) {
+                    if (clickPrevent == '1') return;
+                    clickLocked();
+                    var that = this;
+                    setTimeout(function () {
+                        removeitemTimeOutClick(that);
+                    }, 100);
                 });
                 SPview(spitem);__bCart.append(spitem);cnt++;
             });
@@ -189,6 +221,8 @@
             }
 
             scrollView.find('#cart_clear').click(function (s, e) {
+                if (clickPrevent == '1') return;
+                clickLocked();
                 var  result = DevExpress.ui.dialog.confirm('<div style="text-align:center;max-width:300px">' + gbM("S1_027") + '</div>', "Confirm changes");
                 result.done(function (rst) {
                     if (rst) {
