@@ -149,6 +149,7 @@
                 if (cnt % 2 == 0) spitem.addClass(bgClass);
                 spitem.data('id', key);
                 spitem.find('.a_qty').click(function (e) {
+                    $("<p>click: " + "</p>").insertBefore($('.giohang'));
                     if (clickPrevent == '1') return;
                     clickLocked();
                     var qty = $(this);
