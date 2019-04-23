@@ -26,7 +26,7 @@
                         var sotien = parseFloat($d['giaban']) * parseFloat($d['sl']),
                             colTotal = el.find('.col-total p');
                         colTotal.html(_Tien($d['sl'] * $d['giaban'], 0));
-                        colTotal.removeAttr('style').autoSizr();
+                        colTotal.fuckSizr();
                     };
                     var $tong = cartxx.find('.tf .row .subtotal');
                     $tong[0].innerHTML = _Tien(0, 0);
