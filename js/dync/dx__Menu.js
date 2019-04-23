@@ -154,6 +154,7 @@
                     clickLocked();
                     var qty = $(this);
                     qty.attr('tabindex', 1).focus();
+                    $("<p>focus: " + "</p>").insertBefore($('.giohang'));
                     setTimeout(function () {
                         a_qtyClick(qty);
                     }, 100);
