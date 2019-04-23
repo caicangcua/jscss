@@ -173,7 +173,7 @@
                 setTimeout(function () {
                     qty.removeAttr('tabindex').blur();
                     $("<p>blur: " + 'blur' + "</p>").insertBefore($('.giohang'));
-                    a_qtyClick(qty);
+                    //a_qtyClick(qty);
                 }, 1000);
             });
             //
