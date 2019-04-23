@@ -10,7 +10,8 @@
             dathangcase['0'] = $(dathang[0]).clone(); $(dathang[0]).remove();
             //
             var scrollOpts = {},deliData = __$shared._deliInfo(), __bCart = cartxx.find('.scrollbody'),
-                UptCart = function (el,sl) {
+                UptCart = function (el, sl) {
+                    $("<p>spid: " + el.parent().data().id + "</p>").insertBefore(cartxx.find('.giohang'));
                     __$shared._cbCart(el.parent().data().id, {
                         sl:sl 
                     });
@@ -74,7 +75,7 @@
                     QTY(el);
                     //
                 }, bgClass = 'row row-bg2', cnt = 1, __sampleP = __bCart.children().first(); __sampleP.detach();
-            var a_qtyClick = function (qty) {
+                var a_qtyClick = function (qty) {
                     try {
                         var cartItem = qty.parent();
                         var $spin = cartItem.find('input'), val = parseInt($spin.val()), cong = qty.hasClass('qty-plus');
@@ -83,9 +84,9 @@
                             QTY(cartItem.parent());
                             //setTimeout(function () { cartItem.find('input').select(); }, 300);
                         }
-                    } catch (err) {
-                        DevExpress.ui.notify(err, 'error', 5000);
-                    }
+                    }catch (err) {
+                        $("<p>a_qtyClick Error: " + err + "</p>").insertBefore(cartxx.find('.giohang'));
+                    };
                 }, removeitemTimeOutClick = function (that) {
                     var result = DevExpress.ui.dialog.confirm('<div style="text-align:center;max-width:300px">' + gbM("S1_027") + '</div>', "Confirm changes");
                     result.done(function (rst) {
