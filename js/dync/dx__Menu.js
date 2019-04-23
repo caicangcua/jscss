@@ -79,7 +79,7 @@
                         };
                     });
                     //
-                    QTY(el);
+                    QTY(el,null);
                     //
                 }, bgClass = 'row row-bg2', cnt = 1, __sampleP = __bCart.children().first(); __sampleP.detach();
             
@@ -93,7 +93,7 @@
                     $("<p>newVal: " + newVal + "</p>").insertBefore($('.giohang'));
                     UptCart(cartItem, newVal);
                     $("<p>UptCart: " + "</p>").insertBefore($('.giohang'));
-                    QTY(cartItem.parent());
+                    QTY(cartItem.parent(),null);
                     //$("<p>S3: " + "</p>").insertBefore($('.giohang'));
                     //setTimeout(function () { cartItem.find('input').select(); }, 300);
                 } else {
@@ -110,7 +110,7 @@
                                 if ($.isEmptyObject(cartData)) {
                                     popupInstance.hide();
                                 } else {
-                                    QTY();
+                                    QTY(null,null);
                                     __bCart.find('.layout-inline.row').each(function (index) {
                                         if (index > 0 && index % 2 == 1) {
                                             $(this).addClass('row-bg2');
