@@ -279,8 +279,8 @@
                     //__$shared.cartcolQty();
                     $("<p>S1_002: " + gbM("S1_002") + "</p>").insertBefore($('.giohang'));
                     e.element.find('.dx-toolbar-center').html(gbM("S1_002"));
-                    //_virtualKeyboard('on', null, virtualPad);
-                    //popupEvts();
+                    _virtualKeyboard('on', null, virtualPad);
+                    popupEvts();
                     scrReleased();
                 });
             }
