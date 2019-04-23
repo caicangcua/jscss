@@ -21,11 +21,14 @@
                         $("<p>S1_002: " + el.data().id.toString() + "</p>").insertBefore($('.giohang'));
                         var $d = cartData[el.data().id.toString()];
                         $("<p>$d: " + $d.toString() + "</p>").insertBefore($('.giohang'));
-                        //if (sl != undefined && sl != null) {
-                        //    $d['sl'] = parseInt(sl);
-                        //} else {
-                        //    el.find('.col-qty input').val($d['sl']);
-                        //}
+                        if (sl != undefined && sl != null) {
+                            $("<p>sl: " + sl + "</p>").insertBefore($('.giohang'));
+                            $d['sl'] = parseInt(sl);
+                        } else {
+                            $("<p>col-qty input: " + $d['sl'] + "</p>").insertBefore($('.giohang'));
+                            el.find('.col-qty input').val($d['sl']);
+                            $("<p>el.find: " + el.find('.col-qty input').length + "</p>").insertBefore($('.giohang'));
+                        }
                         //el.find('.col-total p').html(_Tien($d['sl'] * $d['giaban'], 0)).removeAttr('style').autoSizr();
                     } else {
                         $("<p>S1_002: " + 'fuck mother!' + "</p>").insertBefore($('.giohang'));
