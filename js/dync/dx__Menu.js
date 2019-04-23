@@ -28,7 +28,8 @@
                             $("<p>col-qty input: " + $d['sl'] + "</p>").insertBefore($('.giohang'));
                             el.find('.col-qty input').val($d['sl']);
                         };
-                        $("<p>col-total p: " + el.find('.col-total p').length + "</p>").insertBefore($('.giohang'));
+                        $("<p>$d['sl']: " + $d['sl'] + "</p>").insertBefore($('.giohang'));
+                        $("<p>$d['giaban']: " + $d['giaban'] + "</p>").insertBefore($('.giohang'));
                         //el.find('.col-total p').html(_Tien($d['sl'] * $d['giaban'], 0)).removeAttr('style').autoSizr();
                     } else {
                         $("<p>S1_002: " + 'fuck mother!' + "</p>").insertBefore($('.giohang'));
