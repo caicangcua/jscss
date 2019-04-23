@@ -155,9 +155,7 @@
                     var qty = $(this);
                     qty.attr('tabindex', 1).focus();
                     $("<p>focus: " + "</p>").insertBefore($('.giohang'));
-                    setTimeout(function () {
-                        a_qtyClick(qty);
-                    }, 100);
+                    a_qtyClick(qty);
                     setTimeout(function () { qty.removeAttr('tabindex').blur(); }, 1000);
                 });
                 spitem.find('.removeitem').click(function (e) {
