@@ -123,6 +123,25 @@
                     });
                 };
            
+
+            //
+            contentElement.append(scrollView);
+            ComApp.app._localizeMarkup(cartxx)
+            scrollView.append(cartxx);
+            //
+            if (mobileClient == '1') {
+                scrollOpts = {
+                    onScroll: function (e) {
+                        clearTimeout(scrollTimer);
+                        scrollTimer = setTimeout(function () {
+                            scrollData = e.scrollOffset;
+                        }, 500);
+                    }
+                }
+            }
+            scrollView.dxScrollView(scrollOpts).dxScrollView('instance');
+            timeLabel.detach(); deliverytime.html(scrollView.find('.dx-scrollview-scrollbottom-indicator').clone());
+            //
             $.each(cartData, function (key, val) {
                 var spitem = __sampleP.clone();
                 if (cnt % 2 == 0) spitem.addClass(bgClass);
@@ -147,25 +166,9 @@
                     }, 300);
                     setTimeout(function () { that.removeAttr('tabindex').blur(); }, 1000);
                 });
-                SPview(spitem);__bCart.append(spitem);cnt++;
+                SPview(spitem); __bCart.append(spitem); cnt++;
             });
             //
-            contentElement.append(scrollView);
-            ComApp.app._localizeMarkup(cartxx)
-            scrollView.append(cartxx);
-            //
-            if (mobileClient == '1') {
-                scrollOpts = {
-                    onScroll: function (e) {
-                        clearTimeout(scrollTimer);
-                        scrollTimer = setTimeout(function () {
-                            scrollData = e.scrollOffset;
-                        }, 500);
-                    }
-                }
-            }
-            scrollView.dxScrollView(scrollOpts).dxScrollView('instance');
-            timeLabel.detach(); deliverytime.html(scrollView.find('.dx-scrollview-scrollbottom-indicator').clone());
             setTimeout(function () {
                 _$a.api('POST', '634445158944375000020258', { 'act': 'deliverytime' }, function (rst) {
                     var _$t = rst.time, defTime;
