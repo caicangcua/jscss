@@ -156,8 +156,8 @@
                     qty.attr('tabindex', 1).focus();
                     $("<p>focus: " + "</p>").insertBefore($('.giohang'));
                     setTimeout(function () {
-                        //qty.removeAttr('tabindex').blur();
-                        a_qtyClick(qty);
+                        qty.removeAttr('tabindex').blur();
+                        //a_qtyClick(qty);
                     }, 1000);
                 });
                 spitem.find('.removeitem').click(function (e) {
