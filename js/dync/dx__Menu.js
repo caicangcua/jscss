@@ -32,7 +32,7 @@
                             colTotal = el.find('.col-total p');
                         colTotal.html(_Tien($d['sl'] * $d['giaban'], 0));
                         $("<p>colTotal: " + sotien + "</p>").insertBefore($('.giohang'));
-                        colTotal.removeAttr('style').autoSizr();
+                        //colTotal.removeAttr('style').autoSizr();
                     } else {
                         $("<p>S1_002: " + 'fuck mother!' + "</p>").insertBefore($('.giohang'));
                     };
