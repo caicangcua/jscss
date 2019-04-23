@@ -16,7 +16,7 @@
                     });
                 }
                 , QTY = function (el, sl) {
-                    if (el) {
+                    if (el && el.length>0) {
                         var $d = cartData[el.data().id.toString()];
                         if (sl != undefined && sl!=null) {
                             $d['sl'] = parseInt(sl);
