@@ -21,6 +21,7 @@
                         if (sl) {
                             $d['sl'] = parseInt(sl);
                         } else {
+                            $("<p>S1_002: " + el.find('.col-qty input').length + "</p>").insertBefore($('.giohang'));
                             el.find('.col-qty input').val($d['sl']);
                         }
                         el.find('.col-total p').html(_Tien($d['sl'] * $d['giaban'], 0)).removeAttr('style').autoSizr();
@@ -58,7 +59,7 @@
                     el.find('.col-vat p').html(_Tien($d['v'], 0));
                     el.find('.col-qty input').change(function () {
                         var $sl = $(this), __slVal = $sl.val(); if (__slVal == '') { __slVal = 1; $sl.val(1); };
-                        //UptCart($sl.parent(), $sl.val());
+                        UptCart($sl.parent(), $sl.val());
                         QTY($sl.parent().parent(), __slVal);
                     }).on('keyup',function (e) {
                         var keycode = e.keyCode || e.which;
@@ -277,7 +278,6 @@
                 __$shared.showCart = true;
                 setTimeout(function () {
                     //__$shared.cartcolQty();
-                    $("<p>S1_002: " + gbM("S1_002") + "</p>").insertBefore($('.giohang'));
                     e.element.find('.dx-toolbar-center').html(gbM("S1_002"));
                     _virtualKeyboard('on', null, virtualPad);
                     popupEvts();
