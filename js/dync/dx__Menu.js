@@ -89,7 +89,7 @@
                     $("<p>newVal: " + newVal + "</p>").insertBefore($('.giohang'));
                     UptCart(cartItem, newVal);
                     $("<p>UptCart: " + "</p>").insertBefore($('.giohang'));
-                    //QTY(cartItem.parent());
+                    QTY(cartItem.parent());
                     //$("<p>S3: " + "</p>").insertBefore($('.giohang'));
                     //setTimeout(function () { cartItem.find('input').select(); }, 300);
                 } else {
