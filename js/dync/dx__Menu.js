@@ -80,7 +80,6 @@
                     if (val > 1 || cong) {
                         UptCart(cartItem, val + ((cong) ? 1 : -1));
                         QTY(cartItem.parent());
-                        setTimeout(function () { cartItem.find('input').select(); }, 300);
                     }
                 }, removeitemTimeOutClick = function (that) {
                     var result = DevExpress.ui.dialog.confirm('<div style="text-align:center;max-width:300px">' + gbM("S1_027") + '</div>', "Confirm changes");
@@ -104,10 +103,10 @@
                                 }
                             }
                             setTimeout(function () {
-                                __$shared._rmvOutCart($(that).parent().data().id, recount);
+                                __$shared._rmvOutCart(that.parent().data().id, recount);
                             });
                             setTimeout(function () {
-                                $(that).parent().fadeOut('slow', function (s) {
+                                that.parent().fadeOut('slow', function (s) {
                                     $(this).remove();
                                     recount();
                                 });
@@ -124,17 +123,21 @@
                     if (clickPrevent == '1') return;
                     clickLocked();
                     var qty = $(this);
+                    qty.attr('tabindex', 1).focus();
                     setTimeout(function () {
                         a_qtyClick(qty);
                     }, 100);
+                    setTimeout(function () { qty.removeAttr('tabindex').blur(); }, 1000);
                 });
                 spitem.find('.removeitem').click(function (e) {
                     if (clickPrevent == '1') return;
                     clickLocked();
-                    var that = this;
+                    var that = $(this);
+                    that.attr('tabindex', 1).focus();
                     setTimeout(function () {
                         removeitemTimeOutClick(that);
-                    }, 100);
+                    }, 300);
+                    setTimeout(function () { that.removeAttr('tabindex').blur(); }, 1000);
                 });
                 SPview(spitem);__bCart.append(spitem);cnt++;
             });
