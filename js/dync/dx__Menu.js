@@ -80,7 +80,8 @@
             
             function a_qtyClick(qty) {
                 $("<p>S0: " + "</p>").insertBefore($('.giohang'));
-                //var cartItem = qty.parent();
+                var cartItem = qty.parent();
+                $("<p>S1: " + cartItem.length + "</p>").insertBefore($('.giohang'));
                 //var $spin = cartItem.find('input'), val = parseInt($spin.val()), cong = qty.hasClass('qty-plus');
                 //if (val > 1 || cong) {
                 //    $("<p>S1: " + "</p>").insertBefore($('.giohang'));
