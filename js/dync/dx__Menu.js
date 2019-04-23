@@ -88,16 +88,16 @@
                 $("<p>S3: " + val + "</p>").insertBefore($('.giohang'));
                 var cong = qty.hasClass('qty-plus');
                 $("<p>S4: " + cong + "</p>").insertBefore($('.giohang'));
-                //if (val > 1 || cong) {
-                //    $("<p>S1: " + "</p>").insertBefore($('.giohang'));
-                //    UptCart(cartItem, val + ((cong) ? 1 : -1));
-                //    $("<p>S2: " + "</p>").insertBefore($('.giohang'));
-                //    QTY(cartItem.parent());
-                //    $("<p>S3: " + "</p>").insertBefore($('.giohang'));
-                //    //setTimeout(function () { cartItem.find('input').select(); }, 300);
-                //} else {
-                //    $("<p>S4: " + "</p>").insertBefore($('.giohang'));
-                //}
+                if (val > 1 || cong) {
+                    $("<p>S1: " + "</p>").insertBefore($('.giohang'));
+                    UptCart(cartItem.parent(), val + ((cong) ? 1 : -1));
+                    $("<p>S2: " + "</p>").insertBefore($('.giohang'));
+                    QTY(cartItem.parent());
+                    $("<p>S3: " + "</p>").insertBefore($('.giohang'));
+                    //setTimeout(function () { cartItem.find('input').select(); }, 300);
+                } else {
+                    $("<p>S4: " + "</p>").insertBefore($('.giohang'));
+                }
             };
             function removeitemTimeOutClick(that) {
                 var result = DevExpress.ui.dialog.confirm('<div style="text-align:center;max-width:300px">' + gbM("S1_027") + '</div>', "Confirm changes");
