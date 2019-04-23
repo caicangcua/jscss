@@ -16,27 +16,18 @@
                     });
                 }
                 , QTY = function (el, sl) {
-                    $("<p>Begin: " + "</p>").insertBefore($('.giohang'));
                     if (el && el.length > 0) {
-                        $("<p>S1_002: " + el.data().id.toString() + "</p>").insertBefore($('.giohang'));
                         var $d = cartData[el.data().id.toString()];
-                        $("<p>$d: " + $d.toString() + "</p>").insertBefore($('.giohang'));
                         if (sl != undefined && sl != null) {
-                            $("<p>sl: " + sl + "</p>").insertBefore($('.giohang'));
                             $d['sl'] = parseInt(sl);
                         } else {
-                            $("<p>col-qty input: " + $d['sl'] + "</p>").insertBefore($('.giohang'));
                             el.find('.col-qty input').val($d['sl']);
                         };
                         var sotien = parseFloat($d['giaban']) * parseFloat($d['sl']),
                             colTotal = el.find('.col-total p');
                         colTotal.html(_Tien($d['sl'] * $d['giaban'], 0));
-                        $("<p>colTotal: " + sotien + "</p>").insertBefore($('.giohang'));
                         //colTotal.removeAttr('style').autoSizr();
-                    } else {
-                        $("<p>S1_002: " + 'fuck mother!' + "</p>").insertBefore($('.giohang'));
                     };
-                    $("<p>AfterIf: "  + "</p>").insertBefore($('.giohang'));
                     var $tong = cartxx.find('.tf .row .subtotal');
                     $tong[0].innerHTML = _Tien(0, 0);
                     $tong[1].innerHTML = _Tien(0, 0);
@@ -95,9 +86,7 @@
                     var newVal = val + parseInt(((cong) ? 1 : -1));
                     UptCart(cartItem, newVal);
                     QTY(cartItem.parent(),null);
-                    //setTimeout(function () { cartItem.find('input').select(); }, 300);
-                } else {
-                    $("<p>S4: " + "</p>").insertBefore($('.giohang'));
+                    setTimeout(function () { cartItem.find('input').select(); }, 300);
                 }
             };
             function removeitemTimeOutClick(that) {
@@ -155,9 +144,6 @@
                 var spitem = __sampleP.clone();
                 if (cnt % 2 == 0) spitem.addClass(bgClass);
                 spitem.data('id', key);
-                //spitem.find('.a_qty').click(function (e) {
-
-                //});
                 spitem.find('.removeitem').click(function (e) {
                     if (clickPrevent == '1') return;
                     clickLocked();
@@ -172,17 +158,14 @@
             });
             //
             cartxx.on('click', '.a_qty', function (evt) {
-                $("<p>click: " + "</p>").insertBefore($('.giohang'));
                 if (clickPrevent == '1') return;
                 clickLocked();
                 var qty = $(evt.target);
                 qty.attr('tabindex', 1).focus();
-                $("<p>focus: " + qty.length + "</p>").insertBefore($('.giohang'));
                 setTimeout(function () {
-                    qty.removeAttr('tabindex').blur();
-                    $("<p>blur: " + 'blur' + "</p>").insertBefore($('.giohang'));
                     a_qtyClick(qty);
-                }, 1000);
+                }, 100);
+                setTimeout(function () {qty.removeAttr('tabindex').blur();}, 1000);
             });
             //
             setTimeout(function () {
