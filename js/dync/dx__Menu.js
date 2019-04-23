@@ -285,7 +285,7 @@
                 __$shared.showCart = true;
                 setTimeout(function () {
                     //__$shared.cartcolQty();
-                    //e.element.find('.dx-toolbar-center').html(gbM("S1_002"));
+                    e.element.find('.dx-toolbar-center').html(gbM("S1_002"));
                     //_virtualKeyboard('on', null, virtualPad);
                     //popupEvts();
                     scrReleased();
