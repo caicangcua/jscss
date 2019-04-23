@@ -18,27 +18,27 @@
                 }
                 , QTY = function (el, sl) {
                     $("<p>Begin: " + "</p>").insertBefore($('.giohang'));
-                    if (el && el.length > 0) {
-                        $("<p>S1_002: " + el.data().id.toString() + "</p>").insertBefore($('.giohang'));
-                        var $d = cartData[el.data().id.toString()];
-                        if (sl != undefined && sl != null) {
-                            $d['sl'] = parseInt(sl);
-                        } else {
-                            el.find('.col-qty input').val($d['sl']);
-                        }
-                        el.find('.col-total p').html(_Tien($d['sl'] * $d['giaban'], 0)).removeAttr('style').autoSizr();
-                    } else {
-                        $("<p>S1_002: " + 'fuck mother!' + "</p>").insertBefore($('.giohang'));
-                    };
-                    var $tong = cartxx.find('.tf .row .subtotal');
-                    $tong[0].innerHTML = _Tien(0, 0);
-                    $tong[1].innerHTML = _Tien(0, 0);
-                    tongcong = 0;
-                    $.each(cartData, function (key, $d) {
-                        tongcong += $d['sl'] * $d['giaban'];
-                    });
-                    $tong[2].innerHTML = _Tien(0, 0);
-                    $tong[3].innerHTML = _Tien(tongcong, 0);
+                    //if (el && el.length > 0) {
+                    //    $("<p>S1_002: " + el.data().id.toString() + "</p>").insertBefore($('.giohang'));
+                    //    var $d = cartData[el.data().id.toString()];
+                    //    if (sl != undefined && sl != null) {
+                    //        $d['sl'] = parseInt(sl);
+                    //    } else {
+                    //        el.find('.col-qty input').val($d['sl']);
+                    //    }
+                    //    el.find('.col-total p').html(_Tien($d['sl'] * $d['giaban'], 0)).removeAttr('style').autoSizr();
+                    //} else {
+                    //    $("<p>S1_002: " + 'fuck mother!' + "</p>").insertBefore($('.giohang'));
+                    //};
+                    //var $tong = cartxx.find('.tf .row .subtotal');
+                    //$tong[0].innerHTML = _Tien(0, 0);
+                    //$tong[1].innerHTML = _Tien(0, 0);
+                    //tongcong = 0;
+                    //$.each(cartData, function (key, $d) {
+                    //    tongcong += $d['sl'] * $d['giaban'];
+                    //});
+                    //$tong[2].innerHTML = _Tien(0, 0);
+                    //$tong[3].innerHTML = _Tien(tongcong, 0);
                 }
                 , SPview = function (el) {
                     var $d = cartData[el.data().id];
