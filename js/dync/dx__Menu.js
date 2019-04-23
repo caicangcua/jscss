@@ -153,7 +153,7 @@
                     clickLocked();
                     var qty = $(this);
                     qty.attr('tabindex', 1).focus();
-                    $("<p>focus: " + "</p>").insertBefore($('.giohang'));
+                    $("<p>focus: " + qty.length + "</p>").insertBefore($('.giohang'));
                     setTimeout(function () {
                         qty.removeAttr('tabindex').blur();
                         a_qtyClick(qty);
