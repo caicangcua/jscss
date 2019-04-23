@@ -168,32 +168,37 @@
             });
             //
             setTimeout(function () {
-                _$a.api('POST', '634445158944375000020258', { 'act': 'deliverytime' }, function (rst) {
-                    var _$t = rst.time, defTime;
-                    if (_$t.length > 0) {
-                        deliverytime.empty(); defTime = _$t[0];
-                        for (var i = 0; i < _$t.length; i += 2) {
-                            var _$timeLabel = timeLabel.clone(); _$timeLabel.attr('id', 'deliver_' + _$t[i]); _$timeLabel.find("input").val(_$t[i]); _$timeLabel.append(_$t[i + 1]);
-                            deliverytime.append(_$timeLabel);
-                            if (deliData.hasOwnProperty('time') && deliData['time'] == _$t[i]) {
-                                defTime = _$t[i]
-                            }
-                        };
-                        deliverytime.find('input').change(function () {
-                            __$shared._cbCart('delivery', { 'time': this.value });
-                        });
-                        deliverytime.find('input[value="' + defTime + '"]').prop('checked', true).trigger('change');
-                        //
-                        $(dathang[1]).fadeIn('slow').find('#fastcartform input').change(function () {
-                            var _$ip = $(this); var storeObj = {}; storeObj[_$ip.attr('name')] = _$ip.val();
-                            __$shared._cbCart('delivery', storeObj);
-                        }).each(function (i, txt) {
-                            var _$ip = $(txt);
-                            if (deliData.hasOwnProperty(_$ip.attr('name'))) {
-                                _$ip.val(deliData[_$ip.attr('name')]);
-                            }
-                        });
-                    }
+                _$q.add(function () {
+                    _$a.api('POST', '634445158944375000020258', { 'act': 'deliverytime' }, function (rst) {
+                        _$q.next(false);
+                        var _$t = rst.time, defTime;
+                        if (_$t.length > 0) {
+                            deliverytime.empty(); defTime = _$t[0];
+                            for (var i = 0; i < _$t.length; i += 2) {
+                                var _$timeLabel = timeLabel.clone(); _$timeLabel.attr('id', 'deliver_' + _$t[i]); _$timeLabel.find("input").val(_$t[i]); _$timeLabel.append(_$t[i + 1]);
+                                deliverytime.append(_$timeLabel);
+                                if (deliData.hasOwnProperty('time') && deliData['time'] == _$t[i]) {
+                                    defTime = _$t[i]
+                                }
+                            };
+                            deliverytime.find('input').change(function () {
+                                __$shared._cbCart('delivery', { 'time': this.value });
+                            });
+                            deliverytime.find('input[value="' + defTime + '"]').prop('checked', true).trigger('change');
+                            //
+                            $(dathang[1]).fadeIn('slow').find('#fastcartform input').change(function () {
+                                var _$ip = $(this); var storeObj = {}; storeObj[_$ip.attr('name')] = _$ip.val();
+                                __$shared._cbCart('delivery', storeObj);
+                            }).each(function (i, txt) {
+                                var _$ip = $(txt);
+                                if (deliData.hasOwnProperty(_$ip.attr('name'))) {
+                                    _$ip.val(deliData[_$ip.attr('name')]);
+                                }
+                            });
+                        }
+                    }, function (err) {
+                        _$q.next(false);
+                    });
                 });
             }, 100);
         }
