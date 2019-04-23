@@ -147,19 +147,9 @@
                 var spitem = __sampleP.clone();
                 if (cnt % 2 == 0) spitem.addClass(bgClass);
                 spitem.data('id', key);
-                spitem.find('.a_qty').click(function (e) {
-                    $("<p>click: " + "</p>").insertBefore($('.giohang'));
-                    if (clickPrevent == '1') return;
-                    clickLocked();
-                    var qty = $(this);
-                    qty.attr('tabindex', 1).focus();
-                    $("<p>focus: " + qty.length + "</p>").insertBefore($('.giohang'));
-                    setTimeout(function () {
-                        qty.removeAttr('tabindex').blur();
-                        $("<p>blur: " + 'blur' + "</p>").insertBefore($('.giohang'));
-                        a_qtyClick(qty);
-                    }, 1000);
-                });
+                //spitem.find('.a_qty').click(function (e) {
+
+                //});
                 spitem.find('.removeitem').click(function (e) {
                     if (clickPrevent == '1') return;
                     clickLocked();
@@ -171,6 +161,20 @@
                     setTimeout(function () { that.removeAttr('tabindex').blur(); }, 1000);
                 });
                 SPview(spitem); __bCart.append(spitem); cnt++;
+            });
+            //
+            cartxx.on('click', '.a_qty', function (evt) {
+                $("<p>click: " + "</p>").insertBefore($('.giohang'));
+                if (clickPrevent == '1') return;
+                clickLocked();
+                var qty = $(evt.target);
+                qty.attr('tabindex', 1).focus();
+                $("<p>focus: " + qty.length + "</p>").insertBefore($('.giohang'));
+                setTimeout(function () {
+                    qty.removeAttr('tabindex').blur();
+                    $("<p>blur: " + 'blur' + "</p>").insertBefore($('.giohang'));
+                    a_qtyClick(qty);
+                }, 1000);
             });
             //
             setTimeout(function () {
