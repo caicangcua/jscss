@@ -156,6 +156,7 @@
                     $("<p>focus: " + qty.length + "</p>").insertBefore($('.giohang'));
                     setTimeout(function () {
                         qty.removeAttr('tabindex').blur();
+                        $("<p>blur: " + 'blur' + "</p>").insertBefore($('.giohang'));
                         a_qtyClick(qty);
                     }, 1000);
                 });
