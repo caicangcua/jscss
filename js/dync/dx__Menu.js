@@ -29,7 +29,7 @@
                             el.find('.col-qty input').val($d['sl']);
                             $("<p>el.find: " + el.find('.col-qty input').length + "</p>").insertBefore($('.giohang'));
                         }
-                        //el.find('.col-total p').html(_Tien($d['sl'] * $d['giaban'], 0)).removeAttr('style').autoSizr();
+                        el.find('.col-total p').html(_Tien($d['sl'] * $d['giaban'], 0)).removeAttr('style').autoSizr();
                     } else {
                         $("<p>S1_002: " + 'fuck mother!' + "</p>").insertBefore($('.giohang'));
                     };
