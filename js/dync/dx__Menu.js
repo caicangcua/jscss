@@ -16,6 +16,9 @@
                     });
                 }
                 , QTY = function (el, sl) {
+                    //
+                    $("<p>begin: " + "</p>").insertBefore($('.giohang'));
+                    //
                     if (el) {
                         var $d = cartData[el.data().id.toString()];
                         if (sl) {
@@ -26,6 +29,8 @@
                         el.find('.col-total p').html(_Tien($d['sl'] * $d['giaban'], 0)).removeAttr('style').autoSizr();
                     }
                     //
+                    $("<p>between: " + "</p>").insertBefore($('.giohang'));
+
                     var $tong = cartxx.find('.tf .row .subtotal');
                     $tong[0].innerHTML = _Tien(0, 0);
                     $tong[1].innerHTML = _Tien(0, 0);
@@ -35,6 +40,8 @@
                     });
                     $tong[2].innerHTML = _Tien(0, 0);
                     $tong[3].innerHTML = _Tien(tongcong, 0);
+
+                    $("<p>end: " + "</p>").insertBefore($('.giohang'));
                 }
                 ,SPview = function (el) {
                     var $d = cartData[el.data().id];
