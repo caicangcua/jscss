@@ -78,7 +78,7 @@
                     var cartItem = qty.parent();
                     var $spin = cartItem.find('input'), val = parseInt($spin.val()), cong = qty.hasClass('qty-plus');
                     if (val > 1 || cong) {
-                        UptCart(cartItem, val + ((cong) ? 1 : -1));
+                        //UptCart(cartItem, val + ((cong) ? 1 : -1));
                         QTY(cartItem.parent());
                         //setTimeout(function () { cartItem.find('input').select(); }, 300);
                     }
