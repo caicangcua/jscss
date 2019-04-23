@@ -282,12 +282,12 @@
             , onShown: function (e) {
                 __$shared.showCart = true;
                 setTimeout(function () {
-                    //__$shared.cartcolQty();
-                    e.element.find('.dx-toolbar-center').html(gbM("S1_002"));
+                    __$shared.cartcolQty();
                     _virtualKeyboard('on', null, virtualPad);
                     popupEvts();
-                    scrReleased();
-                });
+                },500);
+                e.element.find('.dx-toolbar-center').html(gbM("S1_002"));
+                scrReleased();
             }
         }).dxPopup('instance');
         setTimeout(function () {
