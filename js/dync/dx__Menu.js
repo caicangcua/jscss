@@ -13,7 +13,7 @@
                 UptCart = function (el, sl) {
                     $("<p>spid: " + el.parent().data().id + "</p>").insertBefore(cartxx.find('.giohang'));
                     __$shared._cbCart(el.parent().data().id, {
-                        sl:sl 
+                        'sl':sl 
                     });
                 }
                 , QTY = function (el, sl) {
@@ -76,17 +76,13 @@
                     //
                 }, bgClass = 'row row-bg2', cnt = 1, __sampleP = __bCart.children().first(); __sampleP.detach();
                 var a_qtyClick = function (qty) {
-                    try {//fuck
-                        var cartItem = qty.parent();
-                        var $spin = cartItem.find('input'), val = parseInt($spin.val()), cong = qty.hasClass('qty-plus');
-                        if (val > 1 || cong) {
-                            UptCart(cartItem, val + ((cong) ? 1 : -1));
-                            QTY(cartItem.parent());
-                            //setTimeout(function () { cartItem.find('input').select(); }, 300);
-                        }
-                    }catch (err) {
-                        $("<p>a_qtyClick Error: " + err + "</p>").insertBefore(cartxx.find('.giohang'));
-                    };
+                    var cartItem = qty.parent();
+                    var $spin = cartItem.find('input'), val = parseInt($spin.val()), cong = qty.hasClass('qty-plus');
+                    if (val > 1 || cong) {
+                        UptCart(cartItem, val + ((cong) ? 1 : -1));
+                        QTY(cartItem.parent());
+                        //setTimeout(function () { cartItem.find('input').select(); }, 300);
+                    }
                 }, removeitemTimeOutClick = function (that) {
                     var result = DevExpress.ui.dialog.confirm('<div style="text-align:center;max-width:300px">' + gbM("S1_027") + '</div>', "Confirm changes");
                     result.done(function (rst) {
