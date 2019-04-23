@@ -11,14 +11,13 @@
             //
             var scrollOpts = {},deliData = __$shared._deliInfo(), __bCart = cartxx.find('.scrollbody'),
                 UptCart = function (el, sl) {
-                    $("<p>spid: " + el.parent().data().id + "</p>").insertBefore(cartxx.find('.giohang'));
-                    __$shared._cbCart(el.parent().data().id, {
+                    __$shared._cbCart(el.parent().data().id.toString(), {
                         'sl':sl 
                     });
                 }
                 , QTY = function (el, sl) {
                     if (el) {
-                        var $d = cartData[el.data().id];
+                        var $d = cartData[el.data().id.toString()];
                         if (sl) {
                             $d['sl'] = parseInt(sl);
                         } else {
