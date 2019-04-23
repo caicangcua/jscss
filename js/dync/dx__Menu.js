@@ -16,12 +16,12 @@
                     });
                 }
                 , QTY = function (el, sl) {
-                    if (el && el.length>0) {
+                    if (el && el.length > 0) {
+                        $("<p>S1_002: " + el.html() + "</p>").insertBefore($('.giohang'));
                         var $d = cartData[el.data().id.toString()];
                         if (sl != undefined && sl!=null) {
                             $d['sl'] = parseInt(sl);
                         } else {
-                            $("<p>S1_002: " + el.find('.col-qty input').length + "</p>").insertBefore($('.giohang'));
                             el.find('.col-qty input').val($d['sl']);
                         }
                         el.find('.col-total p').html(_Tien($d['sl'] * $d['giaban'], 0)).removeAttr('style').autoSizr();
