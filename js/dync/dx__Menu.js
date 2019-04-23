@@ -9,10 +9,10 @@
             dathangcase['2'] = $(dathang[2]).clone(); $(dathang[2]).remove();
             dathangcase['0'] = $(dathang[0]).clone(); $(dathang[0]).remove();
             //
-            var scrollOpts = {},deliData = __$shared._deliInfo(), __bCart = cartxx.find('.scrollbody'),
+            var scrollOpts = {}, deliData = __$shared._deliInfo(), __bCart = cartxx.find('.scrollbody'),
                 UptCart = function (el, sl) {
                     __$shared._cbCart(el.parent().data().id.toString(), {
-                        'sl':sl 
+                        'sl': sl
                     });
                 }
                 , QTY = function (el, sl) {
@@ -39,9 +39,9 @@
                     $tong[2].innerHTML = _Tien(0, 0);
                     $tong[3].innerHTML = _Tien(tongcong, 0);
                 }
-                ,SPview = function (el) {
+                , SPview = function (el) {
                     var $d = cartData[el.data().id];
-                    el.find('.col-pro >*').each(function (i,s) {
+                    el.find('.col-pro >*').each(function (i, s) {
                         switch (s.tagName.toLowerCase()) {
                             case 'span': {
                                 s.innerHTML = 'G: ' + _Tien($d['giaban'], 0) + '<br/>Vat: ' + _Tien($d['v'], 0);
@@ -49,7 +49,7 @@
                             }
                             case 'img': {
                                 var imgs = $d.imgs.split(',');
-                                if (imgs.length > 0 && imgs[0] != '')  s.src = imgs[0];
+                                if (imgs.length > 0 && imgs[0] != '') s.src = imgs[0];
                                 break;
                             }
                             case 'p': {
@@ -64,7 +64,7 @@
                         var $sl = $(this), __slVal = $sl.val(); if (__slVal == '') { __slVal = 1; $sl.val(1); };
                         UptCart($sl.parent(), $sl.val());
                         QTY($sl.parent().parent(), __slVal);
-                    }).on('keyup',function (e) {
+                    }).on('keyup', function (e) {
                         var keycode = e.keyCode || e.which;
                         var element = $(this);
                         var len = element.val().length;
@@ -77,54 +77,55 @@
                     QTY(el);
                     //
                 }, bgClass = 'row row-bg2', cnt = 1, __sampleP = __bCart.children().first(); __sampleP.detach();
-                function a_qtyClick(qty) {
-                    $("<p>S0: " + "</p>").insertBefore($('.giohang'));
-                    var cartItem = qty.parent();
-                    var $spin = cartItem.find('input'), val = parseInt($spin.val()), cong = qty.hasClass('qty-plus');
-                    if (val > 1 || cong) {
-                        $("<p>S1: " + "</p>").insertBefore($('.giohang'));
-                        UptCart(cartItem, val + ((cong) ? 1 : -1));
-                        $("<p>S2: " + "</p>").insertBefore($('.giohang'));
-                        QTY(cartItem.parent());
-                        $("<p>S3: " + "</p>").insertBefore($('.giohang'));
-                        //setTimeout(function () { cartItem.find('input').select(); }, 300);
-                    } else {
-                        $("<p>S4: " + "</p>").insertBefore($('.giohang'));
-                    }
-                };
-                function removeitemTimeOutClick(that) {
-                    var result = DevExpress.ui.dialog.confirm('<div style="text-align:center;max-width:300px">' + gbM("S1_027") + '</div>', "Confirm changes");
-                    result.done(function (rst) {
-                        if (rst) {
-                            var waitCount = 2, recount = function () {
-                                waitCount--;
-                                if (waitCount == 0) {
-                                    if ($.isEmptyObject(cartData)) {
-                                        popupInstance.hide();
-                                    } else {
-                                        QTY();
-                                        __bCart.find('.layout-inline.row').each(function (index) {
-                                            if (index > 0 && index % 2 == 1) {
-                                                $(this).addClass('row-bg2');
-                                            } else {
-                                                $(this).removeClass('row-bg2');
-                                            };
-                                        });
-                                    }
+            
+            function a_qtyClick(qty) {
+                $("<p>S0: " + "</p>").insertBefore($('.giohang'));
+                //var cartItem = qty.parent();
+                //var $spin = cartItem.find('input'), val = parseInt($spin.val()), cong = qty.hasClass('qty-plus');
+                //if (val > 1 || cong) {
+                //    $("<p>S1: " + "</p>").insertBefore($('.giohang'));
+                //    UptCart(cartItem, val + ((cong) ? 1 : -1));
+                //    $("<p>S2: " + "</p>").insertBefore($('.giohang'));
+                //    QTY(cartItem.parent());
+                //    $("<p>S3: " + "</p>").insertBefore($('.giohang'));
+                //    //setTimeout(function () { cartItem.find('input').select(); }, 300);
+                //} else {
+                //    $("<p>S4: " + "</p>").insertBefore($('.giohang'));
+                //}
+            };
+            function removeitemTimeOutClick(that) {
+                var result = DevExpress.ui.dialog.confirm('<div style="text-align:center;max-width:300px">' + gbM("S1_027") + '</div>', "Confirm changes");
+                result.done(function (rst) {
+                    if (rst) {
+                        var waitCount = 2, recount = function () {
+                            waitCount--;
+                            if (waitCount == 0) {
+                                if ($.isEmptyObject(cartData)) {
+                                    popupInstance.hide();
+                                } else {
+                                    QTY();
+                                    __bCart.find('.layout-inline.row').each(function (index) {
+                                        if (index > 0 && index % 2 == 1) {
+                                            $(this).addClass('row-bg2');
+                                        } else {
+                                            $(this).removeClass('row-bg2');
+                                        };
+                                    });
                                 }
                             }
-                            setTimeout(function () {
-                                __$shared._rmvOutCart(that.parent().data().id, recount);
-                            });
-                            setTimeout(function () {
-                                that.parent().fadeOut('slow', function (s) {
-                                    $(this).remove();
-                                    recount();
-                                });
-                            }, 10);
                         }
-                    });
-                };
+                        setTimeout(function () {
+                            __$shared._rmvOutCart(that.parent().data().id, recount);
+                        });
+                        setTimeout(function () {
+                            that.parent().fadeOut('slow', function (s) {
+                                $(this).remove();
+                                recount();
+                            });
+                        }, 10);
+                    }
+                });
+            };
             //
             contentElement.append(scrollView);
             ComApp.app._localizeMarkup(cartxx)
@@ -173,7 +174,7 @@
                 setTimeout(function () {
                     qty.removeAttr('tabindex').blur();
                     $("<p>blur: " + 'blur' + "</p>").insertBefore($('.giohang'));
-                    //a_qtyClick(qty);
+                    a_qtyClick(qty);
                 }, 1000);
             });
             //
