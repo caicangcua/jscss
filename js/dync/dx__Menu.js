@@ -16,33 +16,25 @@
                     });
                 }
                 , QTY = function (el, sl) {
-                    $("<p>Begin: " + "</p>").insertBefore($('.giohang'));
                     if (el && el.length > 0) {
-                        $("<p>S1_002: " + el.data().id.toString() + "</p>").insertBefore($('.giohang'));
                         var $d = cartData[el.data().id.toString()];
-                        $("<p>$d: " + $d.toString() + "</p>").insertBefore($('.giohang'));
                         if (sl != undefined && sl != null) {
-                            $("<p>sl: " + sl + "</p>").insertBefore($('.giohang'));
                             $d['sl'] = parseInt(sl);
                         } else {
-                            $("<p>col-qty input: " + $d['sl'] + "</p>").insertBefore($('.giohang'));
                             el.find('.col-qty input').val($d['sl']);
-                            $("<p>el.find: " + el.find('.col-qty input').length + "</p>").insertBefore($('.giohang'));
                         }
-                        //el.find('.col-total p').html(_Tien($d['sl'] * $d['giaban'], 0)).removeAttr('style').autoSizr();
-                    } else {
-                        $("<p>S1_002: " + 'fuck mother!' + "</p>").insertBefore($('.giohang'));
+                        el.find('.col-total p').html(_Tien($d['sl'] * $d['giaban'], 0)).removeAttr('style').autoSizr();
                     };
                     $("<p>AfterIf: "  + "</p>").insertBefore($('.giohang'));
-                    //var $tong = cartxx.find('.tf .row .subtotal');
-                    //$tong[0].innerHTML = _Tien(0, 0);
-                    //$tong[1].innerHTML = _Tien(0, 0);
-                    //tongcong = 0;
-                    //$.each(cartData, function (key, $d) {
-                    //    tongcong += $d['sl'] * $d['giaban'];
-                    //});
-                    //$tong[2].innerHTML = _Tien(0, 0);
-                    //$tong[3].innerHTML = _Tien(tongcong, 0);
+                    var $tong = cartxx.find('.tf .row .subtotal');
+                    $tong[0].innerHTML = _Tien(0, 0);
+                    $tong[1].innerHTML = _Tien(0, 0);
+                    tongcong = 0;
+                    $.each(cartData, function (key, $d) {
+                        tongcong += $d['sl'] * $d['giaban'];
+                    });
+                    $tong[2].innerHTML = _Tien(0, 0);
+                    $tong[3].innerHTML = _Tien(tongcong, 0);
                 }
                 , SPview = function (el) {
                     var $d = cartData[el.data().id];
@@ -90,11 +82,8 @@
                 var cong = qty.hasClass('qty-plus');
                 if (val > 1 || cong==true) {
                     var newVal = val + parseInt(((cong) ? 1 : -1));
-                    $("<p>newVal: " + newVal + "</p>").insertBefore($('.giohang'));
                     UptCart(cartItem, newVal);
-                    $("<p>UptCart: " + "</p>").insertBefore($('.giohang'));
                     QTY(cartItem.parent(),null);
-                    //$("<p>S3: " + "</p>").insertBefore($('.giohang'));
                     //setTimeout(function () { cartItem.find('input').select(); }, 300);
                 } else {
                     $("<p>S4: " + "</p>").insertBefore($('.giohang'));
