@@ -74,13 +74,17 @@
                     QTY(el);
                     //
                 }, bgClass = 'row row-bg2', cnt = 1, __sampleP = __bCart.children().first(); __sampleP.detach();
-                var  a_qtyClick = function (qty) {
-                    var cartItem = qty.parent();
-                    var $spin = cartItem.find('input'), val = parseInt($spin.val()), cong = qty.hasClass('qty-plus');
-                    if (val > 1 || cong) {
-                        //UptCart(cartItem, val + ((cong) ? 1 : -1));
-                        QTY(cartItem.parent());
-                        //setTimeout(function () { cartItem.find('input').select(); }, 300);
+            var a_qtyClick = function (qty) {
+                    try {
+                        var cartItem = qty.parent();
+                        var $spin = cartItem.find('input'), val = parseInt($spin.val()), cong = qty.hasClass('qty-plus');
+                        if (val > 1 || cong) {
+                            UptCart(cartItem, val + ((cong) ? 1 : -1));
+                            QTY(cartItem.parent());
+                            //setTimeout(function () { cartItem.find('input').select(); }, 300);
+                        }
+                    } catch (err) {
+                        DevExpress.ui.notify(err, 'error', 5000);
                     }
                 }, removeitemTimeOutClick = function (that) {
                     var result = DevExpress.ui.dialog.confirm('<div style="text-align:center;max-width:300px">' + gbM("S1_027") + '</div>', "Confirm changes");
