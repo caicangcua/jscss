@@ -19,7 +19,8 @@
                     $("<p>Begin: " + "</p>").insertBefore($('.giohang'));
                     if (el && el.length > 0) {
                         $("<p>S1_002: " + el.data().id.toString() + "</p>").insertBefore($('.giohang'));
-                        //var $d = cartData[el.data().id.toString()];
+                        var $d = cartData[el.data().id.toString()];
+                        $("<p>$d: " + $d.toString() + "</p>").insertBefore($('.giohang'));
                         //if (sl != undefined && sl != null) {
                         //    $d['sl'] = parseInt(sl);
                         //} else {
