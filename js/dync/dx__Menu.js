@@ -59,7 +59,7 @@
                     el.find('.col-vat p').html(_Tien($d['v'], 0));
                     el.find('.col-qty input').change(function () {
                         var $sl = $(this), __slVal = $sl.val(); if (__slVal == '') { __slVal = 1; $sl.val(1); };
-                        UptCart($sl.parent(), $sl.val());
+                        //UptCart($sl.parent(), $sl.val());
                         QTY($sl.parent().parent(), __slVal);
                     }).on('keyup',function (e) {
                         var keycode = e.keyCode || e.which;
