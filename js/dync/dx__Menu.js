@@ -28,9 +28,11 @@
                             $("<p>col-qty input: " + $d['sl'] + "</p>").insertBefore($('.giohang'));
                             el.find('.col-qty input').val($d['sl']);
                         };
-                        var sotien = parseFloat($d['giaban']) * parseFloat($d['sl']);
-                        $("<p>sotien: " + sotien + "</p>").insertBefore($('.giohang'));
-                        //el.find('.col-total p').html(_Tien($d['sl'] * $d['giaban'], 0)).removeAttr('style').autoSizr();
+                        var sotien = parseFloat($d['giaban']) * parseFloat($d['sl']),
+                            colTotal = el.find('.col-total p');
+                        colTotal.html(_Tien($d['sl'] * $d['giaban'], 0));
+                        $("<p>colTotal: " + sotien + "</p>").insertBefore($('.giohang'));
+                        colTotal.removeAttr('style').autoSizr();
                     } else {
                         $("<p>S1_002: " + 'fuck mother!' + "</p>").insertBefore($('.giohang'));
                     };
