@@ -18,7 +18,7 @@
                 , QTY = function (el, sl) {
                     if (el) {
                         var $d = cartData[el.data().id.toString()];
-                        if (sl) {
+                        if (sl != undefined && sl!=null) {
                             $d['sl'] = parseInt(sl);
                         } else {
                             $("<p>S1_002: " + el.find('.col-qty input').length + "</p>").insertBefore($('.giohang'));
