@@ -158,7 +158,7 @@
             //
             cartxx.on('click', '.a_qty', function (evt) {
                 if (clickPrevent == '1') return;
-                clickLocked();
+                clickLocked(100);
                 var qty = $(evt.target);
                 qty.attr('tabindex', 1).focus();
                 setTimeout(function () {
