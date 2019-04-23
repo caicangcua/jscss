@@ -16,6 +16,7 @@
                     });
                 }
                 , QTY = function (el, sl) {
+                    $("<p>Begin: " + "</p>").insertBefore($('.giohang'));
                     if (el && el.length > 0) {
                         $("<p>S1_002: " + el.data().id.toString() + "</p>").insertBefore($('.giohang'));
                         var $d = cartData[el.data().id.toString()];
