@@ -90,7 +90,7 @@
                 $("<p>S4: " + cong + "</p>").insertBefore($('.giohang'));
                 if (val > 1 || cong) {
                     $("<p>S1: " + "</p>").insertBefore($('.giohang'));
-                    UptCart(cartItem.parent(), val + ((cong) ? 1 : -1));
+                    UptCart(cartItem, val + ((cong) ? 1 : -1));
                     $("<p>S2: " + "</p>").insertBefore($('.giohang'));
                     QTY(cartItem.parent());
                     $("<p>S3: " + "</p>").insertBefore($('.giohang'));
