@@ -77,9 +77,9 @@
                     QTY(el);
                     //
                 }, bgClass = 'row row-bg2', cnt = 1, __sampleP = __bCart.children().first(); __sampleP.detach();
-                var a_qtyClick = function (qty) {
-                    var cartItem = qty.parent();
+                function a_qtyClick(qty) {
                     $("<p>S0: " + "</p>").insertBefore($('.giohang'));
+                    var cartItem = qty.parent();
                     var $spin = cartItem.find('input'), val = parseInt($spin.val()), cong = qty.hasClass('qty-plus');
                     if (val > 1 || cong) {
                         $("<p>S1: " + "</p>").insertBefore($('.giohang'));
@@ -91,7 +91,8 @@
                     } else {
                         $("<p>S4: " + "</p>").insertBefore($('.giohang'));
                     }
-                }, removeitemTimeOutClick = function (that) {
+                };
+                function removeitemTimeOutClick(that) {
                     var result = DevExpress.ui.dialog.confirm('<div style="text-align:center;max-width:300px">' + gbM("S1_027") + '</div>', "Confirm changes");
                     result.done(function (rst) {
                         if (rst) {
@@ -124,8 +125,6 @@
                         }
                     });
                 };
-           
-
             //
             contentElement.append(scrollView);
             ComApp.app._localizeMarkup(cartxx)
@@ -157,7 +156,7 @@
                     $("<p>focus: " + "</p>").insertBefore($('.giohang'));
                     setTimeout(function () {
                         qty.removeAttr('tabindex').blur();
-                        //a_qtyClick(qty);
+                        a_qtyClick(qty);
                     }, 1000);
                 });
                 spitem.find('.removeitem').click(function (e) {
