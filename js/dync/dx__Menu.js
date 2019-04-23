@@ -79,11 +79,17 @@
                 }, bgClass = 'row row-bg2', cnt = 1, __sampleP = __bCart.children().first(); __sampleP.detach();
                 var a_qtyClick = function (qty) {
                     var cartItem = qty.parent();
+                    $("<p>S0: " + "</p>").insertBefore($('.giohang'));
                     var $spin = cartItem.find('input'), val = parseInt($spin.val()), cong = qty.hasClass('qty-plus');
                     if (val > 1 || cong) {
+                        $("<p>S1: " + "</p>").insertBefore($('.giohang'));
                         UptCart(cartItem, val + ((cong) ? 1 : -1));
+                        $("<p>S2: " + "</p>").insertBefore($('.giohang'));
                         QTY(cartItem.parent());
+                        $("<p>S3: " + "</p>").insertBefore($('.giohang'));
                         //setTimeout(function () { cartItem.find('input').select(); }, 300);
+                    } else {
+                        $("<p>S4: " + "</p>").insertBefore($('.giohang'));
                     }
                 }, removeitemTimeOutClick = function (that) {
                     var result = DevExpress.ui.dialog.confirm('<div style="text-align:center;max-width:300px">' + gbM("S1_027") + '</div>', "Confirm changes");
