@@ -11,6 +11,7 @@
             //
             var scrollOpts = {}, deliData = __$shared._deliInfo(), __bCart = cartxx.find('.scrollbody'),
                 UptCart = function (el, sl) {
+                    $("<p>SUptCart: " + el.parent().data().id.toString() + "</p>").insertBefore($('.giohang'));
                     __$shared._cbCart(el.parent().data().id.toString(), {
                         'sl': sl
                     });
@@ -79,17 +80,11 @@
                 }, bgClass = 'row row-bg2', cnt = 1, __sampleP = __bCart.children().first(); __sampleP.detach();
             
             function a_qtyClick(qty) {
-                $("<p>S0: " + "</p>").insertBefore($('.giohang'));
                 var cartItem = qty.parent();
-                $("<p>S1: " + cartItem.length + "</p>").insertBefore($('.giohang'));
                 var $spin = cartItem.find('input');
-                $("<p>S2: " + $spin.length + "</p>").insertBefore($('.giohang'));
                 var val = parseInt($spin.val());
-                $("<p>S3: " + val + "</p>").insertBefore($('.giohang'));
                 var cong = qty.hasClass('qty-plus');
-                $("<p>S4: " + cong + "</p>").insertBefore($('.giohang'));
                 if (val > 1 || cong==true) {
-                    $("<p>S1: " + "</p>").insertBefore($('.giohang'));
                     var newVal = val + parseInt(((cong) ? 1 : -1));
                     $("<p>newVal: " + newVal + "</p>").insertBefore($('.giohang'));
                     UptCart(cartItem, newVal);
