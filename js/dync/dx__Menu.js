@@ -76,7 +76,7 @@
                     //
                 }, bgClass = 'row row-bg2', cnt = 1, __sampleP = __bCart.children().first(); __sampleP.detach();
                 var a_qtyClick = function (qty) {
-                    try {
+                    try {//fuck
                         var cartItem = qty.parent();
                         var $spin = cartItem.find('input'), val = parseInt($spin.val()), cong = qty.hasClass('qty-plus');
                         if (val > 1 || cong) {
