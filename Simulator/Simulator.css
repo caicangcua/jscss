@@ -33,14 +33,14 @@
     width: 320px;
     height: 480px;
     padding: 154px 60px 168px;
-    background: url(Images/iphone-p.png) 0 0 no-repeat;
+    background: url(images/iphone-p.png) 0 0 no-repeat;
 }
 
 .dx-simulator-iphone-l {
     width: 480px;
     height: 320px;
     padding: 50px 158px 70px 164px;
-    background: url(Images/iphone-l.png) 0 0 no-repeat;
+    background: url(images/iphone-l.png) 0 0 no-repeat;
 }
 
 /* iPhone 5 */
@@ -48,7 +48,7 @@
     width: 320px;
     height: 568px;
     padding: 154px 60px 168px 65px;
-    background: url(Images/iphone5-p.png) 0 0 no-repeat;
+    background: url(images/iphone5-p.png) 0 0 no-repeat;
     background-position: center;
 }
 
@@ -56,7 +56,7 @@
     width: 568px;
     height: 320px;
     padding: 65px 158px 70px 147px;
-    background: url(Images/iphone5-l.png) 0 0 no-repeat;
+    background: url(images/iphone5-l.png) 0 0 no-repeat;
     background-position: center;
 }
 
@@ -65,7 +65,7 @@
     width: 380px;
     height: 677px;
     padding: 154px 55px 140px 55px;
-    background: url(Images/iphone6-p.png) 0 0 no-repeat;
+    background: url(images/iphone6-p.png) 0 0 no-repeat;
     background-position: center;
 }
 
@@ -73,7 +73,7 @@
     width: 677px;
     height: 380px;
     padding: 65px 150px 65px 147px;
-    background: url(Images/iphone6-l.png) 0 0 no-repeat;
+    background: url(images/iphone6-l.png) 0 0 no-repeat;
     background-position: center;
 }
 
@@ -82,7 +82,7 @@
     width: 540px;
     height: 960px;
     padding: 154px 60px 155px 60px;
-    background: url(Images/iphone6p-p.png) 0 0 no-repeat;
+    background: url(images/iphone6p-p.png) 0 0 no-repeat;
     background-position: center;
 }
 
@@ -90,7 +90,7 @@
     width: 960px;
     height: 540px;
     padding: 65px 150px 65px 147px;
-    background: url(Images/iphone6p-l.png) 0 0 no-repeat;
+    background: url(images/iphone6p-l.png) 0 0 no-repeat;
     background-position: center;
 }
 
@@ -99,7 +99,7 @@
     width: 330px;
     height: 580px;
     padding: 160px 55px 168px 55px;
-    background: url(Images/iphone7-p.png) 0 0 no-repeat;
+    background: url(images/iphone7-p.png) 0 0 no-repeat;
     background-position: center;
 }
 
@@ -107,7 +107,7 @@
     width: 580px;
     height: 330px;
     padding: 65px 150px 65px 155px;
-    background: url(Images/iphone7-l.png) 0 0 no-repeat;
+    background: url(images/iphone7-l.png) 0 0 no-repeat;
     background-position: center;
 }
 
@@ -116,14 +116,14 @@
     width: 768px;
     height: 1024px;
     padding: 165px 173px 202px;
-    background: url(Images/ipad-p.png) 0 0 no-repeat;
+    background: url(images/ipad-p.png) 0 0 no-repeat;
 }
 
 .dx-simulator-ipad-l {
     width: 1024px;
     height: 768px;
     padding: 158px 187px 188px 180px;
-    background: url(Images/ipad-l.png) 0 0 no-repeat;
+    background: url(images/ipad-l.png) 0 0 no-repeat;
 }
 
 /* iPad Mini */
@@ -131,7 +131,7 @@
     width: 768px;
     height: 1024px;
     padding: 200px 173px 202px;
-    background: url(Images/ipad-mini-p.png) 0 0 no-repeat;
+    background: url(images/ipad-mini-p.png) 0 0 no-repeat;
     background-position: center;
 }
 
@@ -139,7 +139,7 @@
     width: 1024px;
     height: 768px;
     padding: 158px 185px 160px 184px;
-    background: url(Images/ipad-mini-l.png) 0 0 no-repeat;
+    background: url(images/ipad-mini-l.png) 0 0 no-repeat;
     background-position: center;
     margin-top:-70px;
 }
@@ -149,7 +149,7 @@
     width: 360px;
     height: 590px;
     padding: 70px 20px 128px 15px;
-    background: url(Images/androidphone-p.png) 0 0 no-repeat;
+    background: url(images/androidphone-p.png) 0 0 no-repeat;
     /*margin-top: 50px;*/
 }
 
@@ -165,7 +165,7 @@
     width: 590px;
     height: 360px;
     padding: 17px 128px 20px 70px;
-    background: url(Images/androidphone-l.png) 0 0 no-repeat;
+    background: url(images/androidphone-l.png) 0 0 no-repeat;
     /*margin-top: 100px;*/
 }
 
@@ -183,7 +183,7 @@
     width: 575px;
     height: 815px;
     padding: 198px 147px 243px 146px;
-    background: url(Images/androidtablet-p.png) 0 0 no-repeat;
+    background: url(images/androidtablet-p.png) 0 0 no-repeat;
 }
 
 .dx-simulator-androidtablet-p .dx-simulator-back {
@@ -197,7 +197,7 @@
     width: 855px;
     height: 534px;
     padding: 123px 183px 176px 197px;
-    background: url(Images/androidtablet-l.png) 0 0 no-repeat;
+    background: url(images/androidtablet-l.png) 0 0 no-repeat;
 }
 
 .dx-simulator-androidtablet-l .dx-simulator-back {
@@ -219,14 +219,14 @@
 
 /* Win10 Phone */
 .dx-simulator-win10phone-p {
-    background: url(Images/Win8Phone.png) no-repeat 50% 50%;
+    background: url(images/Win8Phone.png) no-repeat 50% 50%;
     width: 331px;
     height: 568px;
     padding: 123px 41px 131px 42px;
 }
 
 .dx-simulator-win10phone-l {
-    background: url(Images/Win8Phone-l.png) no-repeat 50% 50%;
+    background: url(images/Win8Phone-l.png) no-repeat 50% 50%;
     width: 568px;
     height: 330px;
     padding: 41px 130px 42px 123px;
@@ -265,7 +265,7 @@
     width: 361px;
     height: 640px;
     padding: 96px 48px 103px 48px;
-    background: url(Images/tizen-p.png) 0 0 no-repeat;
+    background: url(images/tizen-p.png) 0 0 no-repeat;
 }
 
 .dx-simulator-tizen-p .dx-simulator-back {
@@ -281,7 +281,7 @@
     width: 640px;
     height: 360px;
     padding: 45px 103px 49px 96px;
-    background: url(Images/tizen-l.png) 0 0 no-repeat;
+    background: url(images/tizen-l.png) 0 0 no-repeat;
 }
 
 .dx-simulator-tizen-l .dx-simulator-back {
@@ -299,7 +299,7 @@
     width: 360px;
     height: 640px;
     padding: 107px 62px 143px;
-    background: url(Images/generic-p.png) 0 0 no-repeat;    
+    background: url(images/generic-p.png) 0 0 no-repeat;    
 }
 
 
@@ -310,14 +310,14 @@
     width: 1366px;
     height: 768px;
     padding: 130px 154px;
-    background: url(Images/mssurface-l.png) 0 0 no-repeat;
+    background: url(images/mssurface-l.png) 0 0 no-repeat;
 }
 
 .dx-simulator-mssurface-p {
     height: 1366px;
     width: 768px;
     padding: 154px 130px;
-    background: url(Images/mssurface-p.png) 0 0 no-repeat;
+    background: url(images/mssurface-p.png) 0 0 no-repeat;
 }
 
 /* Desktop */
@@ -669,26 +669,26 @@
                     }
 
         .orientation-p {
-            background: url(../Images/orientation-p.png) center center no-repeat;
+            background: url(../images/orientation-p.png) center center no-repeat;
         }
 
         .orientation-l {
-            background: url(../Images/orientation-l.png) center center no-repeat;
+            background: url(../images/orientation-l.png) center center no-repeat;
         }
 
         .size-half {
-            background: url(../Images/size-half.png) center center no-repeat;
+            background: url(../images/size-half.png) center center no-repeat;
         }
 
         .size-one {
-            background: url(../Images/size-one.png) center center no-repeat;
+            background: url(../images/size-one.png) center center no-repeat;
         }
 
         .copyright {
             float: right;
             width: 148px;
             height: 29px;
-            background: url(../Images/copyright.png) 0 0 no-repeat;
+            background: url(../images/copyright.png) 0 0 no-repeat;
             margin-bottom: 30px;
             margin-right: 30px;
         }
