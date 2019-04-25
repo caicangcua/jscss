@@ -1,0 +1,9 @@
+﻿<div data-options="dxView : { name: 'Profile', title:'@S1_015', toolbar: false } "> <div data-bind="dxCommand: { title: '', id: 'rightmenu', elementAttr:{class:'btnstyle2 menu-colapse'}, onExecute:slideMenu,visible:false}"></div> <div data-bind="dxCommand: { title: '', id: 'overflow' , elementAttr:{class:'logoutmenu',id:'buttonlogout'}, onExecute:function(s,e){logoutmenu(s,e);}}"></div> <div class="ProfileForm" data-options="dxContent : { targetPlaceholder: 'content' } "> <div data-bind="dxScrollView: { }"> <div style="width:100%;position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%)"> <div class="dathang" style="margin-bottom:0px"> <div class="login screen-dangnhap" style="position:relative;height:100%;background:rgba(0,0,0,0.2);padding:10px 0 20px"> <div style="padding-left:25px"> <div class="input"> <input type="tel" placeholder="@S1_018" class="sodienthoai" /> <span><i class="fa fa-phone"></i><span class="buocnhap">*</span></span> </div> <div class="input"> <input type="password" placeholder="@S1_022" class="sodienthoai" style="padding-right:70px!important" /> <span><i class="fa fa-key"></i><span class="buocnhap">*</span></span> </div> </div> <div style="position:relative;padding-top:20px;z-index:1"> <div data-bind="dxButton: {
+                                text: '@S1_025',
+                                onClick: function () {
+                                }
+                            }"></div> <div style="width:10px;display:inline-block"></div> <div data-bind="dxButton: {
+                                text: '@S1_024',type:'success',
+                                onClick: function () {
+                                }
+                            }"></div> </div> </div> </div> </div> </div> </div> </div>
