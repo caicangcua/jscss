@@ -1,4 +1,4 @@
-html,
+﻿html,
 body,
 .dx-viewport {
     height: 100%;
@@ -17,8 +17,8 @@ body,
 body {
     margin: 0;
     padding: 0;
-    background: -webkit-radial-gradient(rgba(80,0,0,0.1) 0%, rgba(80,0,0,0.2) 30%, rgba(21,11,1,0.7) 100% ), url('/images/bg.png');
-    background: radial-gradient(rgba(80,0,0,0.1) 0%, rgba(80,0,0,0.2) 30%, rgba(21,11,1,0.7) 100% ), url('/images/bg.png');
+    background: -webkit-radial-gradient(rgba(80,0,0,0.1) 0%, rgba(80,0,0,0.2) 30%, rgba(21,11,1,0.7) 100% ), url('images/bg.png');
+    background: radial-gradient(rgba(80,0,0,0.1) 0%, rgba(80,0,0,0.2) 30%, rgba(21,11,1,0.7) 100% ), url('images/bg.png');
 }
 
 #listWidget, .dx-viewport, .dx-theme-generic-typography, .layout-content.dx-content-placeholder {
